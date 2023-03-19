@@ -2,6 +2,7 @@ from gi.repository import Gtk
 
 from src.data.Project import Project
 from src.ui import Signals
+from src.ui.components.UiExportMenu import UiExportMenu
 from src.ui.components.UiLoadMenu import UiLoadMenu
 from src.ui.components.UiProjectList import ProjectList
 from src.ui.components.UiProjectView import ProjectView
@@ -11,6 +12,7 @@ from src.utils import EventDispatcher
 window: Gtk.Window
 project_list: ProjectList
 project_view: ProjectView
+export_popup: UiExportMenu
 
 # Creates the project list
 def __create_project_list(builder: Gtk.Builder):
@@ -54,11 +56,21 @@ def __create_project_preview(builder: Gtk.Builder):
 
 # Setups the headers
 def __initalize_header(builder: Gtk.Builder):
-    # Gets the import-button
+    # Gets the buttons
     btn_import: Gtk.MenuButton = builder.get_object("btn_import")
+    btn_export: Gtk.MenuButton = builder.get_object("btn_export")
+
+    # Creates menus
+    export_menu = UiExportMenu()
+
+    # Connects toggle event to export button
+    btn_export.connect("toggled", export_menu.on_menu_toggle)
 
     # Sets the popover for the button
     btn_import.set_popover(UiLoadMenu())
+    btn_export.set_popover(export_menu)
+
+    return
 
 
 # Event: Whenever an simple dialog should be displayed
@@ -97,7 +109,6 @@ def open():
 
     # Connect the handlers
     builder.connect_signals({
-        # "onClick": on_click,
     })
 
     # Creates the project-view and project-list

@@ -1,6 +1,7 @@
 import os
 import re
 
+import PIL
 from PIL import Image
 
 from src.data.Price import NormalPriceTypes
