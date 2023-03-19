@@ -44,7 +44,7 @@ class UiLoadMenu(Gtk.Popover):
             (DF_NAME_PRESENTATION, self.btn_presentation, self.on_presentation_open, os.path.isfile),
             (DF_NAME_PROJEKTE, self.btn_projects, self.on_projects_open, os.path.isfile),
             (DF_NAME_PRICE_IMAGES, self.btn_prices, self.on_price_images_open, os.path.isdir),
-            (DF_NAME_PROJECT_IMAGES, self.btn_pj_images, self.on_price_images_open, os.path.isdir),
+            (DF_NAME_PROJECT_IMAGES, self.btn_pj_images, self.on_images_open, os.path.isdir),
         ]
 
         # Tries to load all elements
@@ -53,7 +53,6 @@ class UiLoadMenu(Gtk.Popover):
             full_path = os.path.join(path, filename)
             # Tries to load the elements
             if os.path.exists(full_path) and filefilter(full_path):
-                print(full_path)
                 button.select_filename(full_path)
                 eventHandler(button)
 
@@ -145,7 +144,7 @@ class UiLoadMenu(Gtk.Popover):
 
         # Checks if no other error occurred and no images were loaded
         if len(messages) <= 0 and len(imgs) <= 0:
-            messages.append("Es wurden keine Bilder mit JUFO-Standnamen als Namen gefunden.")
+            messages.append("Es wurden keine Bilder mit JUFO-Standnamen gefunden.")
 
         # Checks if an error occurred
         if len(messages) > 0:
