@@ -5,6 +5,7 @@ from src.ui import Signals
 from src.ui.components.UiLoadMenu import UiLoadMenu
 from src.ui.components.UiProjectList import ProjectList
 from src.ui.components.UiProjectView import ProjectView
+from src.ui.components.UiStatistics import Statistics
 from src.utils import EventDispatcher
 
 window: Gtk.Window
@@ -29,11 +30,18 @@ def __create_project_list(builder: Gtk.Builder):
     # pl.load_projects(projects)
     return pl
 
+# Creates the statistics-preview
+def __create_statistics_view(builder: Gtk.Builder):
+    # Gets the project view-split
+    project_preview_wrapper: Gtk.Paned = builder.get_object("view_split")
+
+    # Appends it
+    project_preview_wrapper.add(Statistics())
 
 # Create the project-preview
 def __create_project_preview(builder: Gtk.Builder):
-    # Gets the project preview-wrapper
-    project_preview_wrapper: Gtk.Box = builder.get_object("project_preview")
+    # Gets the project view-split
+    project_preview_wrapper: Gtk.Paned = builder.get_object("view_split")
 
     # Creates the project-view
     proj_view = ProjectView()
@@ -95,6 +103,7 @@ def open():
     # Creates the project-view and project-list
     project_view = __create_project_preview(builder)
     project_list = __create_project_list(builder)
+    __create_statistics_view(builder)
     __initalize_header(builder)
 
     # Creates the window and opens it

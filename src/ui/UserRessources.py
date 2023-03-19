@@ -11,16 +11,16 @@ from src.utils import EventDispatcher
 from pptx.presentation import Presentation
 
 # Project list (CSV)
-projects: list[Project] | None
+projects: list[Project] | None = None
 
 # Presentation (PPTX)
-presentation: LoadedPresentation | None
+presentation: LoadedPresentation | None = None
 
 # Project-Images (Folder)
-project_images: {str: Image} | None
+project_images: {str: Image} = None
 
 # Price-Images (Price)
-price_images: ({NormalPriceTypes: Image}, Image) | None
+price_images: ({NormalPriceTypes: Image}, Image) = None
 
 
 def on_presentation_load(obj: Presentation | None):
@@ -33,12 +33,12 @@ def on_projects_load(obj: list[Project] | None):
     projects = obj
 
 
-def on_project_images_load(obj: {str: Image} | None):
+def on_project_images_load(obj: {str: Image}):
     global project_images
     project_images = obj
 
 
-def on_price_images_load(obj: ({NormalPriceTypes: Image}, Image) | None):
+def on_price_images_load(obj: ({NormalPriceTypes: Image}, Image)):
     global price_images
     price_images = obj
 
