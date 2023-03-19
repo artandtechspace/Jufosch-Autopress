@@ -168,7 +168,7 @@ def debug_presentation():
         },
         special_price_image=Image.open(PROJ_DIR+"/local/prices/special.png"),
         project_images={
-            "JM234": Image.open(PROJ_DIR+"local/MeineNameIsJeff.png")
+            "JM234": Image.open(PROJ_DIR+"/local/MeineNameIsJeff.png")
         }
     )
 
