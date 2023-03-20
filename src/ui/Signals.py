@@ -26,6 +26,10 @@ SIGNAL_IMAGES_CHANGE = "proj_img_change"
 # prices and the second is for the special image
 SIGNAL_PRICE_IMAGES_CHANGE = "price_img_change"
 
-# Whenever an dialog should be shown
+# Whenever a dialog should be shown
 # Params: (title, error, Gtk.MessageType)
 SIGNAL_SHOW_SIMPLE_DIALOG = "show_dialog"
+
+# Whenever a file chooser dialog should be shown
+# Params: (title, Gtk.FileChooserAction, buttons: [str], filters: [Gtk.FileFilter], Callable[[result],None])
+SIGNAL_SHOW_FILE_CHOOSER = "show_saver"

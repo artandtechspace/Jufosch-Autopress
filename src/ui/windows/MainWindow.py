@@ -1,3 +1,5 @@
+from typing import Callable
+
 from gi.repository import Gtk
 
 from src.data.Project import Project
@@ -72,6 +74,36 @@ def __initalize_header(builder: Gtk.Builder):
 
     return
 
+# Event: Whenever a simple file-chooser should be displayed
+def __on_retrieve_file_chooser_dialog(params: (str, Gtk.FileChooserAction, [str], [Gtk.FileFilter], Callable[[str],None])):
+    global window
+
+    title, action, buttons, filters, callback = params
+
+    dialog = Gtk.FileChooserDialog(
+        title=title,
+        parent=window,
+        action=action
+    )
+
+    # Appends the filters
+    for filt in filters:
+        dialog.add_filter(filt)
+
+    # Appends the buttons
+    dialog.add_buttons(
+        *buttons
+    )
+
+    # Lets the file-chooser do it's thing
+    response = dialog.run()
+    if response == Gtk.ResponseType.OK:
+        callback(dialog.get_file().get_path())
+    elif response == Gtk.ResponseType.CANCEL:
+        callback(None)
+
+    dialog.destroy()
+    pass
 
 # Event: Whenever an simple dialog should be displayed
 def __on_retrieve_show_dialog(params):
@@ -125,3 +157,4 @@ def open():
     # Registers different events
     EventDispatcher.start_lurking(Signals.SIGNAL_SHOW_SIMPLE_DIALOG, __on_retrieve_show_dialog)
     EventDispatcher.start_lurking(Signals.SIGNAL_PROJECTS_CHANGE, __on_projects_change)
+    EventDispatcher.start_lurking(Signals.SIGNAL_SHOW_FILE_CHOOSER, __on_retrieve_file_chooser_dialog)

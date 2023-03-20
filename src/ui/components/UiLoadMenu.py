@@ -160,9 +160,6 @@ class UiLoadMenu(Gtk.Popover):
             # Dispatches the image-load event
             EventDispatcher.shout(Signals.SIGNAL_IMAGES_CHANGE, imgs)
 
-            # Shows how many images were loaded
-            EventDispatcher.shout(Signals.SIGNAL_SHOW_SIMPLE_DIALOG, ("Bilder erfolgreich geladen", "Es wurden "+str(len(imgs))+" Bilder erfolgreich geladen", Gtk.MessageType.INFO))
-
     @Gtk.Template.Callback("on_prices_open")
     def on_price_images_open(self, btn: Gtk.FileChooserButton):
         # Gets the path

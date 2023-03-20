@@ -1,7 +1,7 @@
 from gi.repository import Gtk
 from gi.repository.Gtk import SortType
 
-from src.data.Price import DEFAUlT_PRICE
+from src.data.Price import DEFAULT_PRICE
 from src.data.Project import Project
 from src.data.Type import Type
 from src.ui import Signals
@@ -64,7 +64,7 @@ class ProjectList(Gtk.TreeView):
         proj = next(x for x in self.loaded_projects if x.get_raw_stand_number() == proj_number)
 
         # Updates the price-field
-        row_raw[5] = proj.price != DEFAUlT_PRICE
+        row_raw[5] = proj.price != DEFAULT_PRICE
 
     def __revoke_sort_from_columns(self):
         for c in self.get_columns():
@@ -109,5 +109,5 @@ class ProjectList(Gtk.TreeView):
                 p.location,
                 p.field.value[0],
                 p.get_raw_stand_number(),
-                p.price != DEFAUlT_PRICE
+                p.price != DEFAULT_PRICE
             ])

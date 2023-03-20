@@ -8,13 +8,12 @@ from src.data.Price import NormalPriceTypes
 from src.data.Project import Project
 from src.ui import Signals
 from src.utils import EventDispatcher
-from pptx.presentation import Presentation
 
 # Project list (CSV)
-projects: list[Project] | None = None
+projects: list[Project] = None
 
 # Presentation (PPTX)
-presentation: LoadedPresentation | None = None
+presentation: LoadedPresentation = None
 
 # Project-Images (Folder)
 project_images: {str: Image} = None
@@ -23,7 +22,7 @@ project_images: {str: Image} = None
 price_images: ({NormalPriceTypes: Image}, Image) = None
 
 
-def on_presentation_load(obj: Presentation | None):
+def on_presentation_load(obj: LoadedPresentation | None):
     global presentation
     presentation = obj
 

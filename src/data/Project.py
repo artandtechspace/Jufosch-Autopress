@@ -1,7 +1,7 @@
 from PIL.Image import Image
 
 from src.data.Fields import Fields
-from src.data.Price import DEFAUlT_PRICE
+from src.data.Price import DEFAULT_PRICE
 from src.data.Type import Type
 from src.data.ProjectMember import ProjectMember
 
@@ -16,7 +16,7 @@ class Project:
         self.stand_number = stand_number
         self.members = members
         self.special_price_name = ""
-        self.price = DEFAUlT_PRICE
+        self.price = DEFAULT_PRICE
         self.image: Image = None
 
     def get_raw_stand_number(self):

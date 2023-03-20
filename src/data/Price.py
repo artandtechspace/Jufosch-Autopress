@@ -5,9 +5,10 @@ class PriceAnimation(Enum):
     ROTATING = 1
 
 class NormalPriceTypes(Enum):
-    FIRST = 1
+    # Values are used for wighting prices
+    FIRST = 3
     SECOND = 2
-    THIRD = 3
+    THIRD = 1
 
 
 PRICE_NAMES: {NormalPriceTypes: str} = {
@@ -42,13 +43,24 @@ class Price:
 
 PRICES = [
     Price(False, None),  # None
+    Price(True, None),  # Special
     Price(False, NormalPriceTypes.FIRST),  # First
     Price(False, NormalPriceTypes.SECOND),  # Second
     Price(False, NormalPriceTypes.THIRD),  # Third
     Price(True, NormalPriceTypes.FIRST),  # First + Special
     Price(True, NormalPriceTypes.SECOND),  # Second + Special
     Price(True, NormalPriceTypes.THIRD),  # Third + Special
-    Price(True, None)  # Special
 ]
 
-DEFAUlT_PRICE = PRICES[0]
+DEFAULT_PRICE = PRICES[0]
+
+# Generates a score based on the given price
+def score_price(price: Price):
+    # Base score from the special price
+    score = 1 if price.has_special_price else 0
+
+    # Appends normal price-score times then
+    if price.normal_price is not None:
+        score += price.normal_price.value * 10
+
+    return score

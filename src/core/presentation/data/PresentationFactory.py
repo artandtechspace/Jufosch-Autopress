@@ -4,7 +4,7 @@ from pptx.dml.color import RGBColor
 from src.core.presentation.data.PreLayout import PreLayout
 from src.core.presentation.data.SlideFactory import SlideFactory
 from src.data.Fields import Fields
-from src.data.Price import DEFAUlT_PRICE, NormalPriceTypes, PriceAnimation
+from src.data.Price import DEFAULT_PRICE, NormalPriceTypes, PriceAnimation
 from src.data.Project import Project
 from pptx.presentation import Presentation
 import src.core.presentation.PresentationPlaceholderCollections as PLC
@@ -14,8 +14,16 @@ from PIL import Image
 
 class PresentationFactory:
 
-    def __init__(self, presentation: Presentation, field_layouts: {Fields: PreLayout}, lookup_layout: PreLayout,
-                 price_images: {NormalPriceTypes: Image}, special_price_image: Image, project_images: {str: Image}):
+    def __init__(self,
+                 presentation: Presentation,
+                 field_layouts: {Fields: PreLayout},
+                 lookup_layout: PreLayout,
+                 price_images: {NormalPriceTypes: Image},
+
+                 # Optional
+                 special_price_image: Image,
+                 project_images: {str: Image}
+                 ):
         self.field_layouts = field_layouts
         self.lookup_layout = lookup_layout
         self.presentation = presentation
@@ -42,18 +50,25 @@ class PresentationFactory:
             )
 
     # Takes in a project and build the project-slide for that project
+    # If the with_project_image is enabled, the project image will be added
+    # (If the project has an image, also be sure that the global images-variable is supplied)
     # If with_prices is enabled the prices for that project will also be added
-    # and based on the animation-field will the correct animation be selected
-    def create_project_slide(self, project: Project, with_prices: bool = False,
-                             animation: PriceAnimation = PriceAnimation.FLYIN):
+    # (Be sure the price-images are supplied)
+    # Based on the animation-field will the correct animation be selected
+    def create_project_slide(self,
+                             project: Project,
+                             with_project_image: bool = False,
+                             with_prices: bool = False,
+                             animation: PriceAnimation = PriceAnimation.FLYIN
+                             ):
         # Adds the new slide
         factory = SlideFactory(self.presentation, self.field_layouts[project.field])
 
         # Gets the stand-id
         stand_id = project.get_raw_stand_number()
 
-        # Checks if the project-image exists
-        if stand_id in self.project_images:
+        # Checks if the project-image should be added and exists
+        if with_project_image and stand_id in self.project_images:
             # Adds the image
             factory.add_image(PLC.PROJECT_IMAGE, self.project_images[stand_id])
 
@@ -71,7 +86,7 @@ class PresentationFactory:
             factory.populate(member_fields[mid], mem.get_short_description())
 
         # Checks if prices should be loaded
-        if with_prices and project.price is not DEFAUlT_PRICE:
+        if with_prices and project.price is not DEFAULT_PRICE:
 
             # Gets the price-placeholders
             plc_f_img, plc_f_text, plc_s_img, plc_s_text = self.__get_price_placeholders_by_animation(animation)
@@ -122,7 +137,7 @@ class PresentationFactory:
         factory.populate(PLC.SCHOOL, project.location)
 
         # Checks if prices should be loaded
-        if with_prices and project.price is not DEFAUlT_PRICE:
+        if with_prices and project.price is not DEFAULT_PRICE:
             # Adds the nodes
             factory.populate(PLC.NOTES, project.price.get_name("\n+\n") + "\n" + project.special_price_name)
 
@@ -134,3 +149,15 @@ class PresentationFactory:
             if project.price.has_special_price:
                 factory.add_image(PLC.LOOKUP_PRICE_2 if project.price.normal_price is None else PLC.LOOKUP_PRICE_2,
                                   self.special_price_image)
+
+    # Deletes all slides from the presentation
+    # Based on https://stackoverflow.com/a/74493798
+    def delete_all_slides(self):
+        # Required as python-pptx doesn't give a direct api method for this
+        xml_slides = self.presentation.slides._sldIdLst
+        slides = list(xml_slides)
+
+        # Iterates over the slides and delete them
+        for index in range(len(slides)):
+            xml_slides.remove(slides[index])
+
