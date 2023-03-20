@@ -47,7 +47,7 @@
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="orientation">vertical</property>
-            <property name="position">450</property>
+            <property name="position">400</property>
             <child>
               <placeholder/>
             </child>
