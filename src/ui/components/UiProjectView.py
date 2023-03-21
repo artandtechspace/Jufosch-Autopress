@@ -1,3 +1,7 @@
+
+from PIL import Image
+from gi.overrides.GLib import GLib
+from gi.overrides.GdkPixbuf import GdkPixbuf
 from gi.repository import Gtk
 
 from src.data.Fields import Fields
@@ -5,7 +9,7 @@ from src.data.Price import PRICES
 from src.data.Project import Project
 from src.data.ProjectMember import ProjectMember
 from src.data.Type import Type
-from src.ui import Signals, CachedRessource
+from src.ui import Signals, CachedRessource, UserRessources
 from src.utils import EventDispatcher
 
 # Dummy project
@@ -33,6 +37,8 @@ class ProjectView(Gtk.Stack):
 
     store_prices: Gtk.ListStore = Gtk.Template.Child("priceStore")
     store_specialPriceSuggestions: Gtk.ListStore = Gtk.Template.Child("specialPriceStore")
+
+    img_project: Gtk.Image = Gtk.Template.Child("img_project")
 
     # Ref to the currently selected project
     current_project: Project = None
@@ -113,6 +119,23 @@ class ProjectView(Gtk.Stack):
 
         # Setups the special price field
         self.fld_special_price.set_text(proj.special_price_name)
+
+        # Updates the project-image
+        if UserRessources.project_images is not None and proj.get_raw_stand_number() in UserRessources.project_images:
+            self.img_project.set_visible(True)
+
+            # Gets the image
+            img = UserRessources.project_images[proj.get_raw_stand_number()]
+
+            img = img.resize((400, int(img.height * 400/img.width)))
+
+            buffer = GLib.Bytes.new(img.tobytes())
+            gdata = GdkPixbuf.Pixbuf.new_from_bytes(buffer, GdkPixbuf.Colorspace.RGB, True, 8, img.width,
+                                                    img.height, len(img.getbands()) * img.width)
+
+            self.img_project.set_from_pixbuf(gdata)
+        else:
+            self.img_project.set_visible(False)
 
         # Performs other internal ui updates
         self.__update_internal_ui()
