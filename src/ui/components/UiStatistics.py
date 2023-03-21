@@ -2,10 +2,11 @@ from gi.repository import Gtk
 
 from src.data.Project import Project
 from src.ui import Signals, UserRessources
+from src.ui.CachedRessource import RSC_PATH
 from src.utils import EventDispatcher
 
 
-@Gtk.Template.from_file("rsc/glade/Statistics.glade")
+@Gtk.Template.from_file(RSC_PATH+"/glade/Statistics.glade")
 class Statistics(Gtk.Box):
     __gtype_name__ = "baseStatistics"
 

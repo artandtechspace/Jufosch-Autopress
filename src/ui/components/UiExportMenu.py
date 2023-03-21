@@ -4,10 +4,11 @@ from gi.repository import Gtk
 
 from src.core import ExportManager
 from src.ui import UserRessources, Signals
+from src.ui.CachedRessource import RSC_PATH
 from src.utils import EventDispatcher
 
 
-@Gtk.Template.from_file("rsc/glade/ExportView.glade")
+@Gtk.Template.from_file(RSC_PATH+"/glade/ExportView.glade")
 class UiExportMenu(Gtk.Popover):
     __gtype_name__ = "baseExportMenu"
 

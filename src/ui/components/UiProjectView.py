@@ -10,13 +10,14 @@ from src.data.Project import Project
 from src.data.ProjectMember import ProjectMember
 from src.data.Type import Type
 from src.ui import Signals, CachedRessource, UserRessources
+from src.ui.CachedRessource import RSC_PATH
 from src.utils import EventDispatcher
 
 # Dummy project
 DUMMY_PROJECT = Project("", "", Type.JUFO, Fields.MATH_AND_INFO, 0, [])
 
 
-@Gtk.Template.from_file("rsc/glade/ProjectView.glade")
+@Gtk.Template.from_file(RSC_PATH+"/glade/ProjectView.glade")
 class ProjectView(Gtk.Stack):
     __gtype_name__ = "baseProjectView"
 

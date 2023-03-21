@@ -4,6 +4,7 @@ from gi.repository import Gtk
 from src.core import CSVProjectLoader, ImageLoader
 from src.core.presentation import PresentationLoader
 from src.ui import CachedRessource, Signals
+from src.ui.CachedRessource import RSC_PATH
 from src.utils import EventDispatcher
 import gio
 import os
@@ -14,7 +15,7 @@ DF_NAME_PROJECT_IMAGES = "Projektbilder"
 DF_NAME_PRICE_IMAGES = "Preise"
 DF_NAME_PROJEKTE = "Projekte.csv"
 
-@Gtk.Template.from_file("rsc/glade/LoadMenu.glade")
+@Gtk.Template.from_file(RSC_PATH+"/glade/LoadMenu.glade")
 class UiLoadMenu(Gtk.Popover):
     __gtype_name__ = "baseLoadMenu"
 

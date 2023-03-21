@@ -4,6 +4,7 @@ from gi.repository import Gtk
 
 from src.data.Project import Project
 from src.ui import Signals
+from src.ui.CachedRessource import RSC_PATH
 from src.ui.components.UiExportMenu import UiExportMenu
 from src.ui.components.UiLoadMenu import UiLoadMenu
 from src.ui.components.UiProjectList import ProjectList
@@ -137,11 +138,11 @@ def open():
 
     # Interprets the file
     builder = Gtk.Builder()
-    builder.add_from_file("./rsc/glade/UIBinding.glade")
+    builder.add_from_file(RSC_PATH+"/glade/UIBinding.glade")
 
     # Connect the handlers
-    builder.connect_signals({
-    })
+    #builder.connect_signals({
+    #})
 
     # Creates the project-view and project-list
     project_view = __create_project_preview(builder)

@@ -5,11 +5,11 @@ from src.data.Price import DEFAULT_PRICE
 from src.data.Project import Project
 from src.data.Type import Type
 from src.ui import Signals
-from src.ui.CachedRessource import JUFO_LOGO_SMALL, SUEX_LOGO_SMALL
+from src.ui.CachedRessource import JUFO_LOGO_SMALL, SUEX_LOGO_SMALL, RSC_PATH
 from src.utils import EventDispatcher
 
 
-@Gtk.Template.from_file("rsc/glade/ProjectList.glade")
+@Gtk.Template.from_file(RSC_PATH+"/glade/ProjectList.glade")
 class ProjectList(Gtk.TreeView):
     __gtype_name__ = "baseProjectList"
 
