@@ -25,7 +25,7 @@
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="halign">start</property>
-                <property name="label" translatable="yes">Einstellungen</property>
+                <property name="label" translatable="yes">Settings</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -41,7 +41,7 @@
                   <object class="GtkImage">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="tooltip-text" translatable="yes">Sollen die Preisfolien für die Projekte mitgeneriert werden?</property>
+                    <property name="tooltip-text" translatable="yes">Should the price slides for the projects be generated?</property>
                     <property name="margin-end">5</property>
                     <property name="icon-name">help-about</property>
                   </object>
@@ -55,7 +55,7 @@
                   <object class="GtkImage" id="icon_error_price_slides">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="tooltip-text" translatable="yes">Es sind keine Preisbilder ausgewählt</property>
+                    <property name="tooltip-text" translatable="yes">No price-images have been selected.</property>
                     <property name="margin-start">10</property>
                     <property name="icon-name">dialog-warning</property>
                   </object>
@@ -68,7 +68,7 @@
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="btn_price_slides">
-                    <property name="label" translatable="yes">Preisfolien</property>
+                    <property name="label" translatable="yes">Price-Slides</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">False</property>
@@ -95,7 +95,7 @@
                   <object class="GtkImage">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="tooltip-text" translatable="yes">Sollen die Projektfolien für die Projekte mitgeneriert werden?</property>
+                    <property name="tooltip-text" translatable="yes">Should the project slides for the projects be generated?</property>
                     <property name="margin-end">5</property>
                     <property name="icon-name">help-about</property>
                   </object>
@@ -107,7 +107,7 @@
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="btn_project_slides">
-                    <property name="label" translatable="yes">Projektfolien</property>
+                    <property name="label" translatable="yes">Project-Slides</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">False</property>
@@ -134,7 +134,7 @@
                   <object class="GtkImage">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="tooltip-text" translatable="yes">Sollen Projektbilder auf den Folien mit eingebettet werden?</property>
+                    <property name="tooltip-text" translatable="yes">Should project images be embedded on the slides?</property>
                     <property name="margin-end">5</property>
                     <property name="icon-name">help-about</property>
                   </object>
@@ -148,7 +148,7 @@
                   <object class="GtkImage" id="icon_error_with_images">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="tooltip-text" translatable="yes">Es sind keine Projektbilder ausgewählt.</property>
+                    <property name="tooltip-text" translatable="yes">No projectimages have been selected.</property>
                     <property name="margin-start">10</property>
                     <property name="icon-name">dialog-warning</property>
                   </object>
@@ -161,7 +161,7 @@
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="btn_with_images">
-                    <property name="label" translatable="yes">Mit Projekbildern?</property>
+                    <property name="label" translatable="yes">With Projectimages?</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">False</property>
@@ -188,7 +188,7 @@
                   <object class="GtkImage">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="tooltip-text" translatable="yes">Sollen die Folien für das Spicker-Layout exportiert werden?</property>
+                    <property name="tooltip-text" translatable="yes">Should the slides be exported for the lookup layout?</property>
                     <property name="margin-end">5</property>
                     <property name="icon-name">help-about</property>
                   </object>
@@ -200,7 +200,7 @@
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="btn_gen_lookup">
-                    <property name="label" translatable="yes">Exportiere Spicker?</property>
+                    <property name="label" translatable="yes">Export Lookupslide?</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">False</property>
@@ -227,7 +227,7 @@
                   <object class="GtkImage">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="tooltip-text" translatable="yes">Sollen Projektbilder auf den Folien mit eingebettet werden?</property>
+                    <property name="tooltip-text" translatable="yes">Should the real presentation-slides be exported?</property>
                     <property name="margin-end">5</property>
                     <property name="icon-name">help-about</property>
                   </object>
@@ -239,11 +239,10 @@
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="btn_gen_normal">
-                    <property name="label" translatable="yes">Exportiere Normale?</property>
+                    <property name="label" translatable="yes">Export Presentationslide?</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">False</property>
-                    <property name="tooltip-text" translatable="yes">Sollen die Folien für das Präsentations-Layout exportiert werden?</property>
                     <property name="draw-indicator">True</property>
                   </object>
                   <packing>
@@ -278,7 +277,7 @@
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="halign">start</property>
-                <property name="label" translatable="yes">Exportieren</property>
+                <property name="label" translatable="yes">Export</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -338,7 +337,7 @@
                 <property name="margin-top">10</property>
                 <child>
                   <object class="GtkButton" id="btn_export">
-                    <property name="label" translatable="yes">Exportieren</property>
+                    <property name="label" translatable="yes">Export</property>
                     <property name="name">btn_export</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
@@ -356,7 +355,7 @@
                   <object class="GtkImage" id="icon_export">
                     <property name="name">icon_error_export</property>
                     <property name="can-focus">False</property>
-                    <property name="tooltip-text" translatable="yes">Die Präsentation und die Projekte müssen geladen sein.</property>
+                    <property name="tooltip-text" translatable="yes">The presentation and the project must be loaded.</property>
                     <property name="margin-start">5</property>
                     <property name="icon-name">dialog-warning</property>
                   </object>
@@ -383,21 +382,4 @@
       </object>
     </child>
   </template>
-  <object class="GtkListStore" id="exportTypeStore">
-    <columns>
-      <!-- column-name Name -->
-      <column type="gchararray"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes">Beide</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Nur Präsentationsfolien</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Nur Spickerfolien</col>
-      </row>
-    </data>
-  </object>
 </interface>

@@ -25,7 +25,7 @@
     <child>
       <object class="GtkTreeViewColumn">
         <property name="resizable">True</property>
-        <property name="title" translatable="yes">Preis</property>
+        <property name="title" translatable="yes">Price</property>
         <property name="clickable">True</property>
         <property name="reorderable">True</property>
         <property name="sort-column-id">5</property>
@@ -57,7 +57,7 @@
     <child>
       <object class="GtkTreeViewColumn">
         <property name="resizable">True</property>
-        <property name="title" translatable="yes">Standnummer</property>
+        <property name="title" translatable="yes">Standnumber</property>
         <property name="clickable">True</property>
         <property name="reorderable">True</property>
         <property name="sort-column-id">4</property>
@@ -73,7 +73,7 @@
     <child>
       <object class="GtkTreeViewColumn">
         <property name="resizable">True</property>
-        <property name="title" translatable="yes">Erarbeitungsort</property>
+        <property name="title" translatable="yes">Place of Development</property>
         <property name="clickable">True</property>
         <property name="reorderable">True</property>
         <property name="sort-column-id">2</property>
@@ -89,7 +89,7 @@
     <child>
       <object class="GtkTreeViewColumn">
         <property name="resizable">True</property>
-        <property name="title" translatable="yes">Sparte</property>
+        <property name="title" translatable="yes">Department</property>
         <property name="clickable">True</property>
         <property name="reorderable">True</property>
         <property name="sort-column-id">3</property>

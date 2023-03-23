@@ -95,7 +95,7 @@
                   <object class="GtkLabel">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Öffnen</property>
+                    <property name="label" translatable="yes">Open</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -135,7 +135,7 @@
                   <object class="GtkLabel">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Exportieren</property>
+                    <property name="label" translatable="yes">Export</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>

@@ -45,7 +45,7 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" translatable="yes">Präsentation (PPTX)</property>
+                <property name="label" translatable="yes">Presentation (PPTX)</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -58,7 +58,7 @@
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="filter">filter_presentation</property>
-                <property name="title" translatable="yes">Präsentation öffnen (.pptx)</property>
+                <property name="title" translatable="yes">Open Presentation (.pptx)</property>
                 <signal name="file-set" handler="on_presentation_open" swapped="no"/>
               </object>
               <packing>
@@ -94,7 +94,7 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" translatable="yes">Projekte (CSV)</property>
+                <property name="label" translatable="yes">Projects (CSV)</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -107,7 +107,7 @@
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="filter">filter_projects</property>
-                <property name="title" translatable="yes">Projekte importieren (.csv)</property>
+                <property name="title" translatable="yes">Import Projects (.csv)</property>
                 <signal name="file-set" handler="on_projects_open" swapped="no"/>
               </object>
               <packing>
@@ -143,7 +143,7 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" translatable="yes">Projektbilder (Ordner)</property>
+                <property name="label" translatable="yes">Projectimages (Folder)</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -157,7 +157,7 @@
                 <property name="can-focus">False</property>
                 <property name="action">select-folder</property>
                 <property name="local-only">False</property>
-                <property name="title" translatable="yes">Projektbilder öffnen (Ordner)</property>
+                <property name="title" translatable="yes">Open Projectimages (Folder)</property>
                 <signal name="file-set" handler="on_images_open" swapped="no"/>
               </object>
               <packing>
@@ -193,7 +193,7 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" translatable="yes">Preisbilder (Ordner)</property>
+                <property name="label" translatable="yes">Priceimages (Folder)</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -207,7 +207,7 @@
                 <property name="can-focus">False</property>
                 <property name="action">select-folder</property>
                 <property name="local-only">False</property>
-                <property name="title" translatable="yes">Projektbilder öffnen (Ordner)</property>
+                <property name="title" translatable="yes">Open Priceimages (Folder)</property>
                 <signal name="file-set" handler="on_prices_open" swapped="no"/>
               </object>
               <packing>
@@ -254,7 +254,7 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" translatable="yes">Alles</property>
+                <property name="label" translatable="yes">Select all</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -268,7 +268,7 @@
                 <property name="can-focus">False</property>
                 <property name="action">select-folder</property>
                 <property name="local-only">False</property>
-                <property name="title" translatable="yes">Projektbilder öffnen (Ordner)</property>
+                <property name="title" translatable="yes">Open Folder</property>
                 <signal name="file-set" handler="on_select_all" swapped="no"/>
               </object>
               <packing>

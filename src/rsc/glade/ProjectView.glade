@@ -34,7 +34,7 @@
       <object class="GtkLabel">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <property name="label" translatable="yes">Gähnende Leere</property>
+        <property name="label" translatable="yes">Endless void</property>
         <attributes>
           <attribute name="scale" value="2"/>
           <attribute name="foreground" value="#5e5e5c5c6464"/>
@@ -42,7 +42,7 @@
       </object>
       <packing>
         <property name="name">page1</property>
-        <property name="title" translatable="yes">page1</property>
+        <property name="title">page1</property>
       </packing>
     </child>
     <child>
@@ -81,7 +81,7 @@
                 <property name="can-focus">False</property>
                 <property name="halign">start</property>
                 <property name="margin-end">10</property>
-                <property name="label" translatable="yes">Title</property>
+                <property name="label">Title</property>
                 <property name="wrap">True</property>
                 <attributes>
                   <attribute name="weight" value="bold"/>
@@ -135,7 +135,7 @@
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">Standnummer:</property>
+                        <property name="label" translatable="yes">Standnumber:</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
                         </attributes>
@@ -151,7 +151,7 @@
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">JT001</property>
+                        <property name="label">JT001</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -176,7 +176,7 @@
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">Bearbeitungsort</property>
+                        <property name="label" translatable="yes">Place of development</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
                         </attributes>
@@ -192,7 +192,7 @@
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">ARTandTECH.space</property>
+                        <property name="label">ARTandTECH.space</property>
                         <property name="single-line-mode">True</property>
                         <property name="max-width-chars">10</property>
                       </object>
@@ -219,7 +219,7 @@
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">Fachbereich:</property>
+                        <property name="label" translatable="yes">Department:</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
                         </attributes>
@@ -235,7 +235,7 @@
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">Technik und Mathematik</property>
+                        <property name="label">Technik und Mathematik</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -260,7 +260,7 @@
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">Mitarbeiter</property>
+                        <property name="label" translatable="yes">Project workers</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
                         </attributes>
@@ -276,7 +276,7 @@
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">S1</property>
+                        <property name="label">S1</property>
                         <property name="single-line-mode">True</property>
                         <property name="max-width-chars">10</property>
                       </object>
@@ -291,7 +291,7 @@
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">S2</property>
+                        <property name="label">S2</property>
                         <property name="single-line-mode">True</property>
                         <property name="max-width-chars">10</property>
                       </object>
@@ -306,7 +306,7 @@
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">S3</property>
+                        <property name="label">S3</property>
                         <property name="single-line-mode">True</property>
                         <property name="max-width-chars">10</property>
                       </object>
@@ -371,7 +371,7 @@
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="halign">start</property>
-                <property name="label" translatable="yes">Preis auswahl</property>
+                <property name="label" translatable="yes">Select Price</property>
                 <attributes>
                   <attribute name="weight" value="bold"/>
                 </attributes>
@@ -415,7 +415,7 @@
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <property name="halign">start</property>
-                    <property name="label" translatable="yes">Sonderpreis Name</property>
+                    <property name="label" translatable="yes">Specialprice Name</property>
                     <attributes>
                       <attribute name="weight" value="bold"/>
                     </attributes>
@@ -457,7 +457,7 @@
       </object>
       <packing>
         <property name="name">page0</property>
-        <property name="title" translatable="yes">page0</property>
+        <property name="title">page0</property>
         <property name="position">1</property>
       </packing>
     </child>
