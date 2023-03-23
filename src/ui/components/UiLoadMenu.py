@@ -48,14 +48,22 @@ class UiLoadMenu(Gtk.Popover):
             (DF_NAME_PROJECT_IMAGES, self.btn_pj_images, self.on_images_open, os.path.isdir),
         ]
 
+        # Flag to indicate if at least one element was tries to be loaded
+        found_smth = False
+
         # Tries to load all elements
         for filename, button, eventHandler, filefilter in refs:
             # Gets the combined path
             full_path = os.path.join(path, filename)
             # Tries to load the elements
             if os.path.exists(full_path) and filefilter(full_path):
+                found_smth = True
                 button.select_filename(full_path)
                 eventHandler(button)
+
+        # Checks if no elements where found
+        if not found_smth:
+            EventDispatcher.shout(Signals.SIGNAL_SHOW_SIMPLE_DIALOG, ("Nichts wurde geladen", "Im ausgewählten Ordner wurde kein Element mit dem korrekten Namen gefunden.", Gtk.MessageType.ERROR))
 
     @Gtk.Template.Callback("on_presentation_open")
     def on_presentation_open(self, btn: Gtk.FileChooserButton):
