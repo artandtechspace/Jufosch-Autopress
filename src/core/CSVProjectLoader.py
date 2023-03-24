@@ -3,7 +3,7 @@ from src.data.Fields import Fields, parse_field
 from src.data.Type import Type, parse_type
 from src.data.ProjectMember import ProjectMember
 from src.data.Project import Project
-
+import io
 
 def __load_members(ages: [str], first_names: [str], last_names: [str]):
     # Array that will hold all members that the end
@@ -92,7 +92,7 @@ def __get_stand_number(raw_number: str, field: Fields, type: Type):
 def load_projects_from_file(file_name: str):
     try:
         # Interprets the csv-file with all projects
-        with open(file_name) as file:
+        with io.open(file_name, mode="r", encoding="utf-8") as file:
             reader = csv.reader(file, delimiter=';')
 
             # Reads in the first line, the fields
