@@ -4,6 +4,7 @@ from src.core.presentation.data.LoadedPresentation import LoadedPresentation
 from src.core.presentation.data.PresentationFactory import PresentationFactory
 from src.data.Price import PriceAnimation, score_price, DEFAULT_PRICE, NormalPriceTypes
 from enum import Enum
+from src.translations.Translator import _
 
 from src.data.Project import Project
 
@@ -12,9 +13,11 @@ class PresentationType(Enum):
     LOOKUP = 0
     NORMAL = 1
 
+
 # Returns all projects sorted by stand
 def __get_sorted_projects(projects: list[Project]):
     return sorted(projects, key=lambda p: p.get_raw_stand_number())
+
 
 # Returns all projects with a price, sorted in order of presentation
 def __get_sorted_priced_projects(projects: list[Project]):
@@ -23,9 +26,10 @@ def __get_sorted_priced_projects(projects: list[Project]):
 
     return sorted(projects, key=lambda p: score_price(p.price))
 
-def __create_slides(factory: PresentationFactory, projects: list[Project], with_project_images: bool, with_price_slides: bool,
-                           with_project_slides: bool, type: PresentationType):
 
+def __create_slides(factory: PresentationFactory, projects: list[Project], with_project_images: bool,
+                    with_price_slides: bool,
+                    with_project_slides: bool, type: PresentationType):
     # Creates normal slides
     if with_project_slides:
         # Sorts the projects based on their stand number
@@ -68,6 +72,7 @@ def __create_slides(factory: PresentationFactory, projects: list[Project], with_
                     project=proj,
                     with_prices=True
                 )
+
 
 # Exports the loaded presentation based on the settings
 # Either with_project_slides or with_lookup_slides should be enabled as otherwise no slides will be generated
@@ -124,5 +129,4 @@ def export_presentation(
         # Tries to save the presentation
         factory.presentation.save(export_path)
     except:
-        # TODO: Language
-        raise ValueError("failed to save the presentation")
+        raise ValueError(_("Couldn't save the presentation"))

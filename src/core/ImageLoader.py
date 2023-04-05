@@ -1,12 +1,12 @@
 import os
 import re
 
-import PIL
 from PIL import Image
 
 from src.data.Price import NormalPriceTypes
+from src.translations.Translator import _
 
-__PROJECT_REGEX = "^(J|S)(P|T|M|G|B|C|A)(\d{3})\.\w+$"
+__PROJECT_REGEX = "^(J|S)(P|T|M|G|B|C|A)(\\d{3})\\.\\w+$"
 
 # File-names for the price-types
 __PRICES = {
@@ -26,15 +26,13 @@ __SPECIAL_PRICE_NAME = "special.png"
 # )
 #
 def load_price_images(path):
-    # TODO: Language
-
     # Helper-function to convert any error while loading the image to a single value-error
     def load_img(name):
         # Tries to load the image
         try:
             return Image.open(os.path.join(path, name), "r")
         except:
-            raise ValueError("Bild '" + str(name) + "' konnte nicht geladen werden.")
+            raise ValueError(_("Image '{img}' couldn't be loaded.").format(img=str(name)))
 
     # Will contain all loaded images
     price_images: {NormalPriceTypes: Image} = {}

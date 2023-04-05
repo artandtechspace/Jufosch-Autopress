@@ -3,6 +3,7 @@ from gi.repository import Gtk
 
 from src.core import CSVProjectLoader, ImageLoader
 from src.core.presentation import PresentationLoader
+from src.translations.Translator import _
 from src.ui import CachedRessource, Signals
 from src.ui.CachedRessource import RSC_PATH
 from src.utils import EventDispatcher
@@ -15,7 +16,8 @@ DF_NAME_PROJECT_IMAGES = "Projektbilder"
 DF_NAME_PRICE_IMAGES = "Preise"
 DF_NAME_PROJEKTE = "Projekte.csv"
 
-@Gtk.Template.from_file(RSC_PATH+"/glade/LoadMenu.glade")
+
+@Gtk.Template.from_file(RSC_PATH + "/glade/LoadMenu.glade")
 class UiLoadMenu(Gtk.Popover):
     __gtype_name__ = "baseLoadMenu"
 
@@ -63,31 +65,40 @@ class UiLoadMenu(Gtk.Popover):
 
         # Checks if no elements where found
         if not found_smth:
-            EventDispatcher.shout(Signals.SIGNAL_SHOW_SIMPLE_DIALOG, ("Nichts wurde geladen", "Im ausgewählten Ordner wurde kein Element mit dem korrekten Namen gefunden.", Gtk.MessageType.ERROR))
+            EventDispatcher.shout(
+                Signals.SIGNAL_SHOW_SIMPLE_DIALOG,
+                (
+                    _("Nothing got loaded"),
+                    _("The selected folder didn't contain any elements with correct names."),
+                    Gtk.MessageType.ERROR
+                )
+            )
 
     @Gtk.Template.Callback("on_presentation_open")
     def on_presentation_open(self, btn: Gtk.FileChooserButton):
 
-        # TODO: Load presentation
         # Gets the path
         path = btn.get_file().get_path()
         try:
             # Tries to load the presentation
-            loadedPres = PresentationLoader.load_presentation(path)
+            loaded_pres = PresentationLoader.load_presentation(path)
 
             # Forwards the event with the presentation as the argument
-            EventDispatcher.shout(Signals.SIGNAL_PRESENTATION_CHANGE, loadedPres)
+            EventDispatcher.shout(Signals.SIGNAL_PRESENTATION_CHANGE, loaded_pres)
         except ValueError as err:
             # Removes the file
             btn.unselect_all()
             # Unselects any previous projects
             EventDispatcher.shout(Signals.SIGNAL_PRESENTATION_CHANGE)
             # Opens the error dialog
-            # TODO: Translate error code and embed external data
-            EventDispatcher.shout(Signals.SIGNAL_SHOW_SIMPLE_DIALOG,
-                                  ("Fehler beim laden der Präsentation", err.args[0], Gtk.MessageType.ERROR))
-        # Forwards the event with a string (path) as the argument
-        #EventDispatcher.shout(Signals.SIGNAL_LOAD_PRESENTATION, )
+            EventDispatcher.shout(
+                Signals.SIGNAL_SHOW_SIMPLE_DIALOG,
+                (
+                    _("Error while loading presentation"),
+                    err.args[0],
+                    Gtk.MessageType.ERROR
+                )
+            )
 
     @Gtk.Template.Callback("on_projects_open")
     def on_projects_open(self, btn: Gtk.FileChooserButton):
@@ -104,16 +115,28 @@ class UiLoadMenu(Gtk.Popover):
             # Unselects any previous projects
             EventDispatcher.shout(Signals.SIGNAL_PROJECTS_CHANGE)
             # Opens the error dialog
-            # TODO: Translate error code and embed external data
-            EventDispatcher.shout(Signals.SIGNAL_SHOW_SIMPLE_DIALOG, ("Fehler beim laden der Projekte", e.args[0], Gtk.MessageType.ERROR))
+            EventDispatcher.shout(
+                Signals.SIGNAL_SHOW_SIMPLE_DIALOG,
+                (
+                    _("Error while loading projects"),
+                    e.args[0],
+                    Gtk.MessageType.ERROR
+                )
+            )
         except FileNotFoundError as e:
             # Removes the file
             btn.unselect_all()
             # Unselects any previous projects
             EventDispatcher.shout(Signals.SIGNAL_PROJECTS_CHANGE)
             # Opens the error dialog
-            EventDispatcher.shout(Signals.SIGNAL_SHOW_SIMPLE_DIALOG, ("Fehler beim laden der Projekte", "Datei existiert nicht...", Gtk.MessageType.ERROR))
-
+            EventDispatcher.shout(
+                Signals.SIGNAL_SHOW_SIMPLE_DIALOG,
+                (
+                    _("Error while loading projects"),
+                    _("File doesn't exists"),
+                    Gtk.MessageType.ERROR
+                )
+            )
 
     @Gtk.Template.Callback("on_images_open")
     def on_images_open(self, btn: Gtk.FileChooserButton):
@@ -123,37 +146,35 @@ class UiLoadMenu(Gtk.Popover):
         # Tries to load the images
         inv_imgs, inv_names, dup_names, imgs = ImageLoader.load_project_images_from_folder(path)
 
-
         # Message-appender
         messages = []
-
-        # TODO: Language lookup
 
         # Checks if some names were invalid
         if len(inv_names) > 0:
             if len(inv_names) < 5:
-                messages.append("Folgende "+str(len(inv_names))+" Bilder haben einen falschen Namen:\n('"+"', '".join(inv_names)+"')")
+                messages.append(_("The following '{length}' images have an invalid name:{lb}('{images}')").format(length=len(inv_names), images="', '".join(inv_names), lb="\n"))
             else:
-                messages.append(str(len(inv_names))+" Bilder haben einen falschen Namen")
+                messages.append(_("{length} images have an invalid name").format(length=len(inv_names)))
 
         # Checks if some images were duplicated
         if len(dup_names) > 0:
             if len(dup_names) < 5:
-                messages.append("Folgende "+str(len(dup_names))+" Projekte haben mehrere Bilder:\n('"+"', '".join(dup_names)+"')")
+                messages.append(_("The following '{length}' projects have multiple images:{lb}('{names}')").format(
+                    length=len(dup_names), names="', '".join(dup_names), lb="\n"))
             else:
-                messages.append(str(len(dup_names))+" Projekte haben mehrere Bilder.")
+                messages.append(_("{length} projects have multiple images.").format(length=len(dup_names)))
 
         # Checks if some images were duplicated
         if len(inv_imgs) > 0:
             if len(inv_imgs) < 5:
-                messages.append(
-                    "Folgende " + str(len(inv_imgs)) + " Bilder konnten nicht geladen werden:\n('" + "', '".join(inv_imgs)+"')")
+                messages.append(_("The following '{length}' images couldn't be loaded:{lb}('{images}')").format(
+                    length=len(inv_imgs), images="', '".join(inv_imgs), lb="\n"))
             else:
-                messages.append(str(len(inv_imgs)) + " Bilder konnten nicht geladen werden.")
+                messages.append(_("{length} images couldn't be loaded.").format(length=len(inv_imgs)))
 
         # Checks if no other error occurred and no images were loaded
         if len(messages) <= 0 and len(imgs) <= 0:
-            messages.append("Es wurden keine Bilder mit JUFO-Standnamen gefunden.")
+            messages.append(_("No images with JUFO-Standnumbers could be found."))
 
         # Checks if an error occurred
         if len(messages) > 0:
@@ -161,7 +182,14 @@ class UiLoadMenu(Gtk.Popover):
             btn.unselect_all()
 
             # Sends the error message
-            EventDispatcher.shout(Signals.SIGNAL_SHOW_SIMPLE_DIALOG, ("Fehler beim laden der Bilder", "\n\n".join(messages), Gtk.MessageType.ERROR))
+            EventDispatcher.shout(
+                Signals.SIGNAL_SHOW_SIMPLE_DIALOG,
+                (
+                    _("Error while loading images"),
+                    "\n\n".join(messages),
+                    Gtk.MessageType.ERROR
+                )
+            )
 
             # Dispatches the image-unload event
             EventDispatcher.shout(Signals.SIGNAL_IMAGES_CHANGE)
@@ -188,7 +216,14 @@ class UiLoadMenu(Gtk.Popover):
             EventDispatcher.shout(Signals.SIGNAL_PRICE_IMAGES_CHANGE)
 
             # Shows how many images were loaded
-            EventDispatcher.shout(Signals.SIGNAL_SHOW_SIMPLE_DIALOG, ("Fehler beim laden der Preisbilder", err.args[0], Gtk.MessageType.ERROR))
+            EventDispatcher.shout(
+                Signals.SIGNAL_SHOW_SIMPLE_DIALOG,
+                (
+                    _("Error while loading price-images"),
+                    err.args[0],
+                    Gtk.MessageType.ERROR
+                )
+            )
 
     def __init__(self):
         super().__init__()

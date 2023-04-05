@@ -1,0 +1,407 @@
+# German translations for PACKAGE package
+# German translation for PACKAGE.
+# Copyright (C) 2023 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# (⚆╭╮⚆)  <noah.albers@artandtech.space>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-05 15:30+0200\n"
+"PO-Revision-Date: 2023-03-31 14:53+0200\n"
+"Last-Translator: (⚆╭╮⚆)  <noah.albers@artandtech.space>\n"
+"Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/rsc/glade/ExportView.glade:28
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: src/rsc/glade/ExportView.glade:44
+msgid "Should the price slides for the projects be generated?"
+msgstr "Sollen die Preisfolien für die Projekte generiert werden?"
+
+#: src/rsc/glade/ExportView.glade:58
+msgid "No price-images have been selected."
+msgstr "Keine Preisbilder wurden ausgewählt."
+
+#: src/rsc/glade/ExportView.glade:71
+msgid "Price-Slides"
+msgstr "Preisfolien"
+
+#: src/rsc/glade/ExportView.glade:98
+msgid "Should the project slides for the projects be generated?"
+msgstr "Sollen die Projektfolien für die Projekte generiert werden?"
+
+#: src/rsc/glade/ExportView.glade:110
+msgid "Project-Slides"
+msgstr "Projektfolien"
+
+#: src/rsc/glade/ExportView.glade:137
+msgid "Should project images be embedded on the slides?"
+msgstr "Sollen Projektbilder mit eingefügt werden?"
+
+#: src/rsc/glade/ExportView.glade:151
+msgid "No projectimages have been selected."
+msgstr "Keine Projektbilder wurden ausgewählt."
+
+#: src/rsc/glade/ExportView.glade:164
+msgid "With Projectimages?"
+msgstr "Mit Projektbildern?"
+
+#: src/rsc/glade/ExportView.glade:191
+msgid "Should the slides be exported for the lookup layout?"
+msgstr "Sollen die folien fürs Spicker-Layout exportiert werden?"
+
+#: src/rsc/glade/ExportView.glade:203
+msgid "Export Lookupslide?"
+msgstr "Spicker-folien exportieren?"
+
+#: src/rsc/glade/ExportView.glade:230
+msgid "Should the real presentation-slides be exported?"
+msgstr "Sollen die echten Präsentationsfolien exportiert werden?"
+
+#: src/rsc/glade/ExportView.glade:242
+msgid "Export Presentationslide?"
+msgstr "Projektfolien exportieren?"
+
+#: src/rsc/glade/ExportView.glade:280 src/rsc/glade/ExportView.glade:340
+#: src/rsc/glade/UIBinding.glade:138 src/ui/components/UiExportMenu.py:168
+msgid "Export"
+msgstr "Exportieren"
+
+#: src/rsc/glade/ExportView.glade:358
+msgid "The presentation and the project must be loaded."
+msgstr "Die Präsentation und die Projekte müssen geladen sein."
+
+#: src/rsc/glade/LoadMenu.glade:48
+msgid "Presentation (PPTX)"
+msgstr "Präsentation (PPTX)"
+
+#: src/rsc/glade/LoadMenu.glade:61
+msgid "Open Presentation (.pptx)"
+msgstr "Präsentation öffnen (.pptx)"
+
+#: src/rsc/glade/LoadMenu.glade:97
+msgid "Projects (CSV)"
+msgstr "Projekte (CSV)"
+
+#: src/rsc/glade/LoadMenu.glade:110
+msgid "Import Projects (.csv)"
+msgstr "Projekte importieren (.csv)"
+
+#: src/rsc/glade/LoadMenu.glade:146
+msgid "Projectimages (Folder)"
+msgstr "Projektbilder (Ordner)"
+
+#: src/rsc/glade/LoadMenu.glade:160
+msgid "Open Projectimages (Folder)"
+msgstr "Öffne Projektbilder (Ordner)"
+
+#: src/rsc/glade/LoadMenu.glade:196
+msgid "Priceimages (Folder)"
+msgstr "Preisbilder (Ordner)"
+
+#: src/rsc/glade/LoadMenu.glade:210
+msgid "Open Priceimages (Folder)"
+msgstr "Preisbilder öffnen (Ordner)"
+
+#: src/rsc/glade/LoadMenu.glade:257
+msgid "Select all"
+msgstr "Alle auswählen"
+
+#: src/rsc/glade/LoadMenu.glade:271
+msgid "Open Folder"
+msgstr "Ordner öffnen"
+
+#: src/rsc/glade/ProjectList.glade:28
+msgid "Price"
+msgstr "Preis"
+
+#: src/rsc/glade/ProjectList.glade:44
+msgid "Name"
+msgstr "Name"
+
+#: src/rsc/glade/ProjectList.glade:60
+msgid "Standnumber"
+msgstr "Standnummer"
+
+#: src/rsc/glade/ProjectList.glade:76
+msgid "Place of Development"
+msgstr "Entwicklungsort"
+
+#: src/rsc/glade/ProjectList.glade:92
+msgid "Department"
+msgstr "Fachbereich"
+
+#: src/rsc/glade/ProjectView.glade:37
+msgid "Endless void"
+msgstr "Das Abyss"
+
+#: src/rsc/glade/ProjectView.glade:138
+msgid "Standnumber:"
+msgstr "Standnummer:"
+
+#: src/rsc/glade/ProjectView.glade:179
+msgid "Place of development"
+msgstr "Entwicklungsort"
+
+#: src/rsc/glade/ProjectView.glade:222
+msgid "Department:"
+msgstr "Fachbereich:"
+
+#: src/rsc/glade/ProjectView.glade:263
+msgid "Project workers"
+msgstr "Projektmitarbeiter"
+
+#: src/rsc/glade/ProjectView.glade:374
+msgid "Select Price"
+msgstr "Preis auswählen"
+
+#: src/rsc/glade/ProjectView.glade:418
+msgid "Specialprice Name"
+msgstr "Sonderpreisname"
+
+#: src/rsc/glade/Statistics.glade:21
+msgid "Statistics"
+msgstr "Statistiken"
+
+#: src/rsc/glade/Statistics.glade:49
+msgid "Projects"
+msgstr "Projekte"
+
+#: src/rsc/glade/Statistics.glade:66
+msgid "├─with Projectimages"
+msgstr "├─mit Projektbildern"
+
+#: src/rsc/glade/Statistics.glade:83
+msgid "└─without Projectimages"
+msgstr "└─ohne Projektbilder"
+
+#: src/rsc/glade/Statistics.glade:99
+msgid "Projectimages"
+msgstr "Projektbilder"
+
+#: src/rsc/glade/UIBinding.glade:98
+msgid "Open"
+msgstr "Öffnen"
+
+#: src/ui/components/UiLoadMenu.py:71
+msgid "Nothing got loaded"
+msgstr "Nichts wurde geladen"
+
+#: src/ui/components/UiLoadMenu.py:72
+msgid "The selected folder didn't contain any elements with correct names."
+msgstr "Der ausgewählte Ordner enthält keine Dateien mit dem richtigen Namen."
+
+#: src/ui/components/UiLoadMenu.py:97
+msgid "Error while loading presentation"
+msgstr "Fehler beim laden der Präsentation"
+
+#: src/ui/components/UiLoadMenu.py:121 src/ui/components/UiLoadMenu.py:135
+msgid "Error while loading projects"
+msgstr "Fehler beim laden der Projekte"
+
+#: src/ui/components/UiLoadMenu.py:136
+msgid "File doesn't exists"
+msgstr "Datei existiert nicht"
+
+#: src/ui/components/UiLoadMenu.py:155
+#, python-brace-format
+msgid "The following '{length}' images have an invalid name:{lb}('{images}')"
+msgstr ""
+"Die folgenden '{length}' Bilder haben ein invaliden Namen:{lb}('{images}')"
+
+#: src/ui/components/UiLoadMenu.py:157
+#, python-brace-format
+msgid "{length} images have an invalid name"
+msgstr "{length} Bilder haben ein invaliden Namen"
+
+#: src/ui/components/UiLoadMenu.py:162
+#, python-brace-format
+msgid "The following '{length}' projects have multiple images:{lb}('{names}')"
+msgstr ""
+"Die folgenden '{length}' Projekte haben mehrere Projektbilder:{lb}('{names}')"
+
+#: src/ui/components/UiLoadMenu.py:165
+#, python-brace-format
+msgid "{length} projects have multiple images."
+msgstr "{length} Projekte haben mehrere Projektbilder."
+
+#: src/ui/components/UiLoadMenu.py:170
+#, python-brace-format
+msgid "The following '{length}' images couldn't be loaded:{lb}('{images}')"
+msgstr ""
+"Die folgenden '{length}' Bilder konnten nicht geladen werden:{lb}('{images}')"
+
+#: src/ui/components/UiLoadMenu.py:173
+#, python-brace-format
+msgid "{length} images couldn't be loaded."
+msgstr "{length} Bilder konnten nicht geladen werden."
+
+#: src/ui/components/UiLoadMenu.py:177
+msgid "No images with JUFO-Standnumbers could be found."
+msgstr "Keine Bilder mit JUFO-Standnummern wurden gefunden."
+
+#: src/ui/components/UiLoadMenu.py:188
+msgid "Error while loading images"
+msgstr "Fehler beim laden der Bilder"
+
+#: src/ui/components/UiLoadMenu.py:222
+msgid "Error while loading price-images"
+msgstr "Fehler beim laden der Preisbilder"
+
+#: src/ui/components/UiExportMenu.py:114
+msgid "Presentation (.pptx)"
+msgstr "Präsentation (.pptx)"
+
+#: src/ui/components/UiExportMenu.py:118
+msgid "Any"
+msgstr "Alle"
+
+#: src/ui/components/UiExportMenu.py:123
+msgid "Save file as"
+msgstr "Datei speichern unter"
+
+#: src/ui/components/UiExportMenu.py:168
+msgid "Presentation export was successful"
+msgstr "Präsentation wurde erfolgreich exportiert"
+
+#: src/ui/components/UiExportMenu.py:172
+msgid "Error while exporting the presentation"
+msgstr "Fehler beim exportieren der Präsentation"
+
+#: src/core/CSVProjectLoader.py:30
+#, python-brace-format
+msgid "Firstname of the {id} user ('{name}') is empty"
+msgstr "Vorname des {id}-Benutzers ('{name}') ist leer"
+
+#: src/core/CSVProjectLoader.py:32
+#, python-brace-format
+msgid "Lastname of the {id} user ('{name}') is empty"
+msgstr "Nachname des {id}-Benutzers ('{name}') ist leer"
+
+#: src/core/CSVProjectLoader.py:34
+#, python-brace-format
+msgid "Age of the {id} user ('{name}') is empty"
+msgstr "Alter des {id}-Benutzers ('{name}') ist leer"
+
+#: src/core/CSVProjectLoader.py:39
+#, python-brace-format
+msgid ""
+"Age of the {id} user ('{name}') is invalid, ' Jahre' must be the suffix of "
+"the age-field"
+msgstr ""
+"Alter des {id}-Benutzers ('{name}') ist invalid, ' Jahre' muss als suffix am "
+"'Alter'-Feld anhängen."
+
+#: src/core/CSVProjectLoader.py:46
+#, python-brace-format
+msgid "Age of the {id} user ('{name}') is not a digit. Found '{raw}'."
+msgstr "Alter des {id}-Benutzers ('{name}') ist keine Zahl: '{raw}'"
+
+#: src/core/CSVProjectLoader.py:56
+#, python-brace-format
+msgid "The project '{name}' has no members"
+msgstr "Das Projekt '{name}' hat keine Mitarbeiter."
+
+#: src/core/CSVProjectLoader.py:65
+#, python-brace-format
+msgid "Field '{value}' wasn't found"
+msgstr "Das Feld '{value}' wurde nicht gefunden."
+
+#: src/core/CSVProjectLoader.py:72
+#, python-brace-format
+msgid ""
+"The standnumber from '{name}' must be 5 characters in length - found "
+"'{number}' ({length})"
+msgstr ""
+"Die Standnummer des Projektes '{name}' muss eine Länge von genau 5 Zeichen "
+"aufweisen - gefunden wurden '{number}' ({length})."
+
+#: src/core/CSVProjectLoader.py:78
+#, python-brace-format
+msgid ""
+"The standnumber from '{name}' doesn't match it's type (JUFO/SUEX) - found "
+"'{number}', wanted '{type}'"
+msgstr ""
+"Die Standnummer des Projektes '{name}' stimmt nicht mit der angegebenen "
+"Sparte überein - gefunden '{number}', gewollt '{type}'."
+
+#: src/core/CSVProjectLoader.py:84
+#, python-brace-format
+msgid ""
+"The standnumber from '{name}' doesn't match it's field - found '{number}', "
+"wanted '{field}'"
+msgstr ""
+"Die Standnummer des Projektes '{name}' stimmt nicht mit dem angegebenen "
+"Fachbereich überein - gefunden '{number}', gewollt '{field}'."
+
+#: src/core/CSVProjectLoader.py:92
+#, python-brace-format
+msgid "Number part of standnumber from '{name}' isn't a number..."
+msgstr ""
+"Der Zahlenteil der Standnummer des Projektes '{name}' ist keine Zahl..."
+
+#: src/core/CSVProjectLoader.py:133
+#, python-brace-format
+msgid ""
+"Project-row '{row}' has an invalid length - found {length}, required "
+"{requirement}"
+msgstr ""
+"Projektzeile '{row}' hat eine falsche länge - gefunden {length}, gewollt "
+"{requirement}"
+
+#: src/core/CSVProjectLoader.py:161
+#, python-brace-format
+msgid "Field from '{name}' ('{field}') is invalid"
+msgstr ""
+"Der Fachbereich des Projektes '{name}' ('{field}') ist kein Fachbereich"
+
+#: src/core/CSVProjectLoader.py:168
+#, python-brace-format
+msgid "Type (JUFO/SUEX) from '{name}' ('{type}') is invalid"
+msgstr "Die Sparte des Projektes '{name}' ('{type}') ist keine richtige Sparte"
+
+#: src/core/CSVProjectLoader.py:177
+#, python-brace-format
+msgid "Standnumber of project '{name}' ('{id}') is duplicated!"
+msgstr ""
+"Die Standnummer des Projektes '{name}' ('{id}') ist mehrfach vorhanden."
+
+#: src/core/CSVProjectLoader.py:187
+msgid "File couldn't be opened"
+msgstr "Fehler beim öffnen der Projektdatei"
+
+#: src/core/presentation/PresentationLoader.py:65
+#, python-brace-format
+msgid ""
+"The placeholder '{placeholder}' from the layout '{layout}' has an invalid "
+"format."
+msgstr ""
+"Der Platzhalter '{placeholder}' des layouts '{layout}' hat ein invalides "
+"Format."
+
+#: src/core/presentation/PresentationLoader.py:75
+#, python-brace-format
+msgid "The lookup-placeholder '{placeholder}' couldn't be found"
+msgstr "Der Spicker-Platzhalter '{placeholder}' konnte nicht gefunden werden"
+
+#: src/core/presentation/PresentationLoader.py:88
+#, python-brace-format
+msgid "The master-layout '{layout}' couldn't be found"
+msgstr "Das Master-Layout '{layout}' wurde nicht gefunden"
+
+#: src/core/ImageLoader.py:35
+#, python-brace-format
+msgid "Image '{img}' couldn't be loaded."
+msgstr "Das Bild '{img}' konnte nicht geladen werden."
+
+#: src/core/ExportManager.py:132
+msgid "Couldn't save the presentation"
+msgstr "Konnte die Präsentation nicht speichern"

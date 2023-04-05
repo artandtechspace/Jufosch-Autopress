@@ -3,6 +3,7 @@ from typing import Callable
 from gi.repository import Gtk
 
 from src.data.Project import Project
+from src.translations.Translator import LANGUAGE_DOMAIN
 from src.ui import Signals
 from src.ui.CachedRessource import RSC_PATH
 from src.ui.components.UiExportMenu import UiExportMenu
@@ -17,6 +18,7 @@ project_list: ProjectList
 project_view: ProjectView
 export_popup: UiExportMenu
 
+
 # Creates the project list
 def __create_project_list(builder: Gtk.Builder):
     # Gets the list-wrapper
@@ -29,11 +31,8 @@ def __create_project_list(builder: Gtk.Builder):
     # Initalizes it with the project-store
     pl.initalize(builder.get_object("store"))
 
-    # TODO: Remove / Debug
-
-    # projects = load_projects_from_file("../local/in.csv")
-    # pl.load_projects(projects)
     return pl
+
 
 # Creates the statistics-preview
 def __create_statistics_view(builder: Gtk.Builder):
@@ -42,6 +41,7 @@ def __create_statistics_view(builder: Gtk.Builder):
 
     # Appends it
     project_preview_wrapper.add(Statistics())
+
 
 # Create the project-preview
 def __create_project_preview(builder: Gtk.Builder):
@@ -56,6 +56,7 @@ def __create_project_preview(builder: Gtk.Builder):
     project_preview_wrapper.add(proj_view)
 
     return proj_view
+
 
 # Setups the headers
 def __initalize_header(builder: Gtk.Builder):
@@ -75,8 +76,10 @@ def __initalize_header(builder: Gtk.Builder):
 
     return
 
+
 # Event: Whenever a simple file-chooser should be displayed
-def __on_retrieve_file_chooser_dialog(params: (str, Gtk.FileChooserAction, [str], [Gtk.FileFilter], Callable[[str],None])):
+def __on_retrieve_file_chooser_dialog(
+        params: (str, Gtk.FileChooserAction, [str], [Gtk.FileFilter], Callable[[str], None])):
     global window
 
     title, action, buttons, filters, callback = params
@@ -105,6 +108,7 @@ def __on_retrieve_file_chooser_dialog(params: (str, Gtk.FileChooserAction, [str]
 
     dialog.destroy()
     pass
+
 
 # Event: Whenever an simple dialog should be displayed
 def __on_retrieve_show_dialog(params):
@@ -138,11 +142,12 @@ def open():
 
     # Interprets the file
     builder = Gtk.Builder()
-    builder.add_from_file(RSC_PATH+"/glade/UIBinding.glade")
+    builder.set_translation_domain(LANGUAGE_DOMAIN)
+    builder.add_from_file(RSC_PATH + "/glade/UIBinding.glade")
 
     # Connect the handlers
-    #builder.connect_signals({
-    #})
+    # builder.connect_signals({
+    # })
 
     # Creates the project-view and project-list
     project_view = __create_project_preview(builder)

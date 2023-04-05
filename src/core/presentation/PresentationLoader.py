@@ -2,26 +2,17 @@ import collections
 import io
 from collections import abc
 import pptx
-from PIL import Image
 from pptx.opc.constants import RELATIONSHIP_TYPE as RT
 from pptx.oxml import parse_xml
 from pptx import Presentation
 from pptx.presentation import Presentation as PresentationClass
 from pptx.slide import SlideLayout
-from pptx.enum.base import EnumValue
-
-from pptx.shapes.placeholder import LayoutPlaceholder
-
 from src.core.presentation.PresentationType import PresentationType
 import src.core.presentation.PresentationPlaceholderCollections as PLC
 from src.core.presentation.data.LoadedPresentation import LoadedPresentation
 from src.core.presentation.data.PreLayout import PreLayout
-from src.core.presentation.data.PresentationFactory import PresentationFactory
 from src.data.Fields import Fields
-from src.data.Price import NormalPriceTypes, PRICES, PriceAnimation
-from src.data.Project import Project
-from src.data.ProjectMember import ProjectMember
-from src.data.Type import Type
+from src.translations.Translator import _
 
 # Lookup names for the layouts
 NAME_MASTER_REAL = "Präsentation"
@@ -54,14 +45,13 @@ def __get_masters_from_presentation(root: PresentationClass):
 
     return real, lookup
 
+
 # Takes in a layout and a list of placeholders.
 # Searches the required placeholders and returns them as a dict
 # raises ValueError if a placeholder wasn't found or if the placeholder was of an invalid type
 def __get_placeholders(layout: pptx.slide.SlideLayout, placeholder_group: [str]):
     # Holds all placeholders
-    dict = {}
-
-    # TODO: Language
+    plc_dict = {}
 
     # Iterates over every required placeholder and then searches it
     for plc_text, plc_types in placeholder_group:
@@ -71,18 +61,20 @@ def __get_placeholders(layout: pptx.slide.SlideLayout, placeholder_group: [str])
 
                 # Ensures that the placeholder is of a valid type
                 if plc.placeholder_format.type.real not in plc_types:
-                    raise ValueError(
-                        "Der Platzhalter '" + plc_text + "' des Layouts '" + layout.name + "' hat ein invalides Format.")
+                    raise ValueError(_(
+                        "The placeholder '{placeholder}' from the layout '{layout}' has an invalid format.").format(
+                        placeholder=plc_text, layout=layout.name))
 
                 # Appends the placeholder
-                dict[plc_text] = plc
+                plc_dict[plc_text] = plc
                 break
 
         # Ensures the placeholder is found
-        if plc_text not in dict:
-            raise ValueError("placeholder.lookup.normal.notfound", (plc_text))
+        if plc_text not in plc_dict:
+            raise ValueError(
+                _("The lookup-placeholder '{placeholder}' couldn't be found").format(placeholder=plc_text))
 
-    return dict
+    return plc_dict
 
 
 def __get_layout_with_name(master: pptx.slide.SlideMaster, name: str):
@@ -93,7 +85,7 @@ def __get_layout_with_name(master: pptx.slide.SlideMaster, name: str):
         if layout.name == name:
             return layout
 
-    raise ValueError("master.layout.notfound", (name))
+    raise ValueError(_("The master-layout '{layout}' couldn't be found").format(layout=name))
 
 
 # Loads the lookup-master slide
@@ -111,8 +103,8 @@ def __load_lookup_master(master: pptx.slide.SlideMaster):
 
 
 def __load_real_master(master: pptx.slide.SlideMaster):
-    def __load_presentation(field: Fields):
-        layout = __get_layout_with_name(master, field.value[0])
+    def __load_presentation(fld: Fields):
+        layout = __get_layout_with_name(master, fld.value[0])
 
         # Gets all those placeholders
         placeholders = __get_placeholders(layout, [
@@ -139,45 +131,6 @@ def __load_real_master(master: pptx.slide.SlideMaster):
     return pres_dict
 
 
-# TODO: DEBUG
-
-def debug_presentation():
-    from local.LocalPaths import PROJ_DIR
-    proj = Project("Yoooooo", "abc", Type.JUFO, Fields.MATH_AND_INFO, 234, [
-        ProjectMember("Occams", "Britva", 2),
-        ProjectMember("Unseren", "Philosophen", 13),
-        ProjectMember("Irgendwas", "lul", 23)
-    ])
-    proj.price = PRICES[4]
-    proj.special_price_name = "Energi und technik oder so"
-
-    pres = load_presentation(PROJ_DIR+"/local/Präsentation.pptx")
-
-    # Creates the factory
-    factory = PresentationFactory(
-        presentation=pres.root,
-        field_layouts=pres.field_layouts,
-        lookup_layout=pres.lookup_layout,
-        price_images={
-            NormalPriceTypes.FIRST: Image.open(
-                PROJ_DIR+"/local/prices/first.png"),
-            NormalPriceTypes.SECOND: Image.open(
-                PROJ_DIR+"/local/prices/second.png"),
-            NormalPriceTypes.THIRD: Image.open(
-                PROJ_DIR+"/local/prices/third.png"),
-        },
-        special_price_image=Image.open(PROJ_DIR+"/local/prices/special.png"),
-        project_images={
-            "JM234": Image.open(PROJ_DIR+"/local/MeineNameIsJeff.png")
-        }
-    )
-
-    factory.create_lookup_slide(proj, True)
-    factory.create_project_slide(proj, True, PriceAnimation.FLYIN)
-
-    pres.root.save(PROJ_DIR+"/local/out.pptx")
-
-
 # Takes in a path to the presentation and tries to load it
 # Returns a tuple consisting of the following:
 # (
@@ -201,7 +154,3 @@ def load_presentation(path: str):
         __load_real_master(master_real),
         __load_lookup_master(master_lookup),
     )
-
-
-if __name__ == '__main__':
-    debug_presentation()

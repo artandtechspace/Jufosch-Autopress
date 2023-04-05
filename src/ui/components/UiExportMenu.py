@@ -3,6 +3,7 @@ from typing import Callable
 from gi.repository import Gtk
 
 from src.core import ExportManager
+from src.translations.Translator import _
 from src.ui import UserRessources, Signals
 from src.ui.CachedRessource import RSC_PATH
 from src.utils import EventDispatcher
@@ -36,7 +37,6 @@ class UiExportMenu(Gtk.Popover):
         # Check-button that enables/disables the setting
         # Function that tests if the condition for enabling is active
         # Error-tooltip
-        # TODO: Language
         settings: [(Gtk.Image, Gtk.CheckButton, Callable[[], bool])] = [
             (
                 self.icn_err_price,
@@ -100,7 +100,7 @@ class UiExportMenu(Gtk.Popover):
         pass
 
     @Gtk.Template.Callback("on_path_btn_clicked")
-    def on_path_btn_clicked(self, _: Gtk.Button):
+    def on_path_btn_clicked(self, x: Gtk.Button):
         def on_result(path: str):
             if path is None:
                 return
@@ -109,19 +109,18 @@ class UiExportMenu(Gtk.Popover):
             self.path_chooser_txt.set_text(path)
             self.__update_ui_export_button()
 
-        # TODO: Language
         # Creates the filters
         filter_pres = Gtk.FileFilter()
-        filter_pres.set_name("Präsentation (.pptx)")
+        filter_pres.set_name(_("Presentation (.pptx)"))
         filter_pres.add_mime_type("application/vnd.openxmlformats-officedocument.presentationml.presentation")
 
         filter_any = Gtk.FileFilter()
-        filter_any.set_name("Any files")
+        filter_any.set_name(_("Any"))
         filter_any.add_pattern("*")
 
         # Sends the chooser-open signal
         EventDispatcher.shout(Signals.SIGNAL_SHOW_FILE_CHOOSER, (
-            "Save file as",
+            _("Save file as"),
             Gtk.FileChooserAction.SAVE,
             [
                 Gtk.STOCK_CANCEL,
@@ -137,7 +136,7 @@ class UiExportMenu(Gtk.Popover):
         ))
 
     @Gtk.Template.Callback("on_export_clicked")
-    def on_click_export(self, _: Gtk.Button):
+    def on_click_export(self, x: Gtk.Button):
         # Gets the settings
         path = self.path_chooser_txt.get_text()
 
@@ -165,12 +164,14 @@ class UiExportMenu(Gtk.Popover):
             )
 
             # Shows the successful export
-            EventDispatcher.shout(Signals.SIGNAL_SHOW_SIMPLE_DIALOG, ("Exportiert", "Präsentation wurde erfolgreich exportiert", Gtk.MessageType.INFO))
+            EventDispatcher.shout(Signals.SIGNAL_SHOW_SIMPLE_DIALOG, (
+                _("Export"), _("Presentation export was successful"), Gtk.MessageType.INFO))
         except ValueError as err:
-            # TODO: Language
             # Opens the error dialog
             EventDispatcher.shout(Signals.SIGNAL_SHOW_SIMPLE_DIALOG,
-                                  ("Fehler beim exportieren der Präsentation", err.args[0], Gtk.MessageType.ERROR))
+                                  (_("Error while exporting the presentation"), err.args[0], Gtk.MessageType.ERROR))
 
     def __init__(self):
         super().__init__()
+
+
