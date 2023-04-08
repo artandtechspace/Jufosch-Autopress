@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-08 20:21+0200\n"
+"POT-Creation-Date: 2023-04-08 23:00+0200\n"
 "PO-Revision-Date: 2023-03-31 14:53+0200\n"
 "Last-Translator: (⚆╭╮⚆)  <noah.albers@artandtech.space>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -71,7 +71,7 @@ msgid "Export Presentationslide?"
 msgstr "Projektfolien exportieren?"
 
 #: src/rsc/glade/ExportView.glade:280 src/rsc/glade/ExportView.glade:340
-#: src/rsc/glade/UIBinding.glade:138 src/ui/components/UiExportMenu.py:168
+#: src/rsc/glade/UIBinding.glade:123 src/ui/components/UiExportMenu.py:168
 msgid "Export"
 msgstr "Exportieren"
 
@@ -139,27 +139,27 @@ msgstr "Entwicklungsort"
 msgid "Department"
 msgstr "Fachbereich"
 
-#: src/rsc/glade/Statistics.glade:21
+#: src/rsc/glade/Statistics.glade:24 src/rsc/glade/UIBinding.glade:167
 msgid "Statistics"
 msgstr "Statistiken"
 
-#: src/rsc/glade/Statistics.glade:49
+#: src/rsc/glade/Statistics.glade:52
 msgid "Projects"
 msgstr "Projekte"
 
-#: src/rsc/glade/Statistics.glade:66
+#: src/rsc/glade/Statistics.glade:69
 msgid "├─with Projectimages"
 msgstr "├─mit Projektbildern"
 
-#: src/rsc/glade/Statistics.glade:83
+#: src/rsc/glade/Statistics.glade:86
 msgid "└─without Projectimages"
 msgstr "└─ohne Projektbilder"
 
-#: src/rsc/glade/Statistics.glade:99
+#: src/rsc/glade/Statistics.glade:102
 msgid "Projectimages"
 msgstr "Projektbilder"
 
-#: src/rsc/glade/UIBinding.glade:98
+#: src/rsc/glade/UIBinding.glade:83
 msgid "Open"
 msgstr "Öffnen"
 
@@ -403,6 +403,7 @@ msgstr "Das Master-Layout '{layout}' wurde nicht gefunden"
 
 #: src/core/ImageLoader.py:35
 #, python-brace-format
+msgid "Image '{img}' couldn't be loaded."
 msgid "Image '{img}' couldn't be loaded."
 msgstr "Das Bild '{img}' konnte nicht geladen werden."
 

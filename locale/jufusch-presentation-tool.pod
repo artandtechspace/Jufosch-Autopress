@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-08 20:21+0200\n"
+"POT-Creation-Date: 2023-04-08 23:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,7 +70,7 @@ msgid "Export Presentationslide?"
 msgstr ""
 
 #: src/rsc/glade/ExportView.glade:280 src/rsc/glade/ExportView.glade:340
-#: src/rsc/glade/UIBinding.glade:138 src/ui/components/UiExportMenu.py:168
+#: src/rsc/glade/UIBinding.glade:123 src/ui/components/UiExportMenu.py:168
 msgid "Export"
 msgstr ""
 
@@ -138,27 +138,27 @@ msgstr ""
 msgid "Department"
 msgstr ""
 
-#: src/rsc/glade/Statistics.glade:21
+#: src/rsc/glade/Statistics.glade:24 src/rsc/glade/UIBinding.glade:167
 msgid "Statistics"
 msgstr ""
 
-#: src/rsc/glade/Statistics.glade:49
+#: src/rsc/glade/Statistics.glade:52
 msgid "Projects"
 msgstr ""
 
-#: src/rsc/glade/Statistics.glade:66
+#: src/rsc/glade/Statistics.glade:69
 msgid "├─with Projectimages"
 msgstr ""
 
-#: src/rsc/glade/Statistics.glade:83
+#: src/rsc/glade/Statistics.glade:86
 msgid "└─without Projectimages"
 msgstr ""
 
-#: src/rsc/glade/Statistics.glade:99
+#: src/rsc/glade/Statistics.glade:102
 msgid "Projectimages"
 msgstr ""
 
-#: src/rsc/glade/UIBinding.glade:98
+#: src/rsc/glade/UIBinding.glade:83
 msgid "Open"
 msgstr ""
 

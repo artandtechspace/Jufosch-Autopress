@@ -4,7 +4,7 @@ from gi.repository import Gtk
 
 from src.data.Project import Project
 from src.translations.Translator import LANGUAGE_DOMAIN
-from src.ui import Signals
+from src.ui import Signals, UserRessources
 from src.ui.CachedRessource import RSC_PATH
 from src.ui.components.UiExportMenu import UiExportMenu
 from src.ui.components.UiLoadMenu import UiLoadMenu
@@ -36,12 +36,24 @@ def __create_project_list(builder: Gtk.Builder):
 
 # Creates the statistics-preview
 def __create_statistics_view(builder: Gtk.Builder):
-    # Gets the project view-split
-    project_preview_wrapper: Gtk.Paned = builder.get_object("view_split")
+    # Creates the view
+    view = Statistics()
 
-    # Appends it
-    project_preview_wrapper.add(Statistics())
+    # Gets the button
+    btn_statistics: Gtk.MenuButton = builder.get_object("btn_statistics")
 
+    # Event to update the statistics-enabled state
+    def __on_conditions_update(_: None):
+        enabled = UserRessources.project_images is not None or UserRessources.projects is not None
+        btn_statistics.set_popover(view if enabled else None)
+        pass
+
+    # Registers the events
+    EventDispatcher.start_lurking(Signals.SIGNAL_PROJECTS_CHANGE, __on_conditions_update)
+    EventDispatcher.start_lurking(Signals.SIGNAL_IMAGES_CHANGE, __on_conditions_update)
+
+    # Runs the initialisation update
+    __on_conditions_update(None)
 
 # Create the project-preview
 def __create_project_preview(builder: Gtk.Builder):
