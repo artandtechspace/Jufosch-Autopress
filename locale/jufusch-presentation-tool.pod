@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-05 15:30+0200\n"
+"POT-Creation-Date: 2023-04-08 20:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -138,34 +138,6 @@ msgstr ""
 msgid "Department"
 msgstr ""
 
-#: src/rsc/glade/ProjectView.glade:37
-msgid "Endless void"
-msgstr ""
-
-#: src/rsc/glade/ProjectView.glade:138
-msgid "Standnumber:"
-msgstr ""
-
-#: src/rsc/glade/ProjectView.glade:179
-msgid "Place of development"
-msgstr ""
-
-#: src/rsc/glade/ProjectView.glade:222
-msgid "Department:"
-msgstr ""
-
-#: src/rsc/glade/ProjectView.glade:263
-msgid "Project workers"
-msgstr ""
-
-#: src/rsc/glade/ProjectView.glade:374
-msgid "Select Price"
-msgstr ""
-
-#: src/rsc/glade/ProjectView.glade:418
-msgid "Specialprice Name"
-msgstr ""
-
 #: src/rsc/glade/Statistics.glade:21
 msgid "Statistics"
 msgstr ""
@@ -188,6 +160,38 @@ msgstr ""
 
 #: src/rsc/glade/UIBinding.glade:98
 msgid "Open"
+msgstr ""
+
+#: src/rsc/glade/ProjectView.glade:55
+msgid "Endless void"
+msgstr ""
+
+#: src/rsc/glade/ProjectView.glade:156
+msgid "Standnumber:"
+msgstr ""
+
+#: src/rsc/glade/ProjectView.glade:197
+msgid "Place of development"
+msgstr ""
+
+#: src/rsc/glade/ProjectView.glade:240
+msgid "Department:"
+msgstr ""
+
+#: src/rsc/glade/ProjectView.glade:281
+msgid "Project workers"
+msgstr ""
+
+#: src/rsc/glade/ProjectView.glade:393
+msgid "Select Price"
+msgstr ""
+
+#: src/rsc/glade/ProjectView.glade:444
+msgid "Specialprice Name (Presentation)"
+msgstr ""
+
+#: src/rsc/glade/ProjectView.glade:487
+msgid "Specialprice Name (Lookup)"
 msgstr ""
 
 #: src/ui/components/UiLoadMenu.py:71

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-05 15:30+0200\n"
+"POT-Creation-Date: 2023-04-08 20:21+0200\n"
 "PO-Revision-Date: 2023-03-31 14:53+0200\n"
 "Last-Translator: (⚆╭╮⚆)  <noah.albers@artandtech.space>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -139,34 +139,6 @@ msgstr "Entwicklungsort"
 msgid "Department"
 msgstr "Fachbereich"
 
-#: src/rsc/glade/ProjectView.glade:37
-msgid "Endless void"
-msgstr "Das Abyss"
-
-#: src/rsc/glade/ProjectView.glade:138
-msgid "Standnumber:"
-msgstr "Standnummer:"
-
-#: src/rsc/glade/ProjectView.glade:179
-msgid "Place of development"
-msgstr "Entwicklungsort"
-
-#: src/rsc/glade/ProjectView.glade:222
-msgid "Department:"
-msgstr "Fachbereich:"
-
-#: src/rsc/glade/ProjectView.glade:263
-msgid "Project workers"
-msgstr "Projektmitarbeiter"
-
-#: src/rsc/glade/ProjectView.glade:374
-msgid "Select Price"
-msgstr "Preis auswählen"
-
-#: src/rsc/glade/ProjectView.glade:418
-msgid "Specialprice Name"
-msgstr "Sonderpreisname"
-
 #: src/rsc/glade/Statistics.glade:21
 msgid "Statistics"
 msgstr "Statistiken"
@@ -190,6 +162,38 @@ msgstr "Projektbilder"
 #: src/rsc/glade/UIBinding.glade:98
 msgid "Open"
 msgstr "Öffnen"
+
+#: src/rsc/glade/ProjectView.glade:55
+msgid "Endless void"
+msgstr "Das Abyss"
+
+#: src/rsc/glade/ProjectView.glade:156
+msgid "Standnumber:"
+msgstr "Standnummer:"
+
+#: src/rsc/glade/ProjectView.glade:197
+msgid "Place of development"
+msgstr "Entwicklungsort"
+
+#: src/rsc/glade/ProjectView.glade:240
+msgid "Department:"
+msgstr "Fachbereich:"
+
+#: src/rsc/glade/ProjectView.glade:281
+msgid "Project workers"
+msgstr "Projektmitarbeiter"
+
+#: src/rsc/glade/ProjectView.glade:393
+msgid "Select Price"
+msgstr "Preis auswählen"
+
+#: src/rsc/glade/ProjectView.glade:444
+msgid "Specialprice Name (Presentation)"
+msgstr "Sonderpreisname (Präsentation)"
+
+#: src/rsc/glade/ProjectView.glade:487
+msgid "Specialprice Name (Lookup)"
+msgstr "Sonderpreisname (Spicker)"
 
 #: src/ui/components/UiLoadMenu.py:71
 msgid "Nothing got loaded"

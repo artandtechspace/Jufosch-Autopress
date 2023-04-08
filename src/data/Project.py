@@ -5,8 +5,8 @@ from src.data.Price import DEFAULT_PRICE
 from src.data.Type import Type
 from src.data.ProjectMember import ProjectMember
 
-
 class Project:
+
     def __init__(self, name: str, location: str, type: Type, field: Fields, stand_number: int,
                  members: [ProjectMember]):
         self.name = name
@@ -15,7 +15,8 @@ class Project:
         self.field = field
         self.stand_number = stand_number
         self.members = members
-        self.special_price_name = ""
+        # Special price name: [Presentation, Lookup]
+        self.special_price_name = ["",""]
         self.price = DEFAULT_PRICE
         self.image: Image = None
 

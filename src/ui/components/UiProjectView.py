@@ -34,19 +34,25 @@ class ProjectView(Gtk.Stack):
 
     fld_price: Gtk.ComboBox = Gtk.Template.Child("fld_price")
     area_special_price: Gtk.Box = Gtk.Template.Child("area_specialPrice")
-    fld_special_price: Gtk.Entry = Gtk.Template.Child("fld_specialPrice")
+    fld_special_price_presentation: Gtk.Entry = Gtk.Template.Child("fld_specialPrice_presentation")
+    fld_special_price_lookup: Gtk.Entry = Gtk.Template.Child("fld_specialPrice_lookup")
 
     store_prices: Gtk.ListStore = Gtk.Template.Child("priceStore")
-    store_specialPriceSuggestions: Gtk.ListStore = Gtk.Template.Child("specialPriceStore")
+    store_specialPriceSuggestions_presentation: Gtk.ListStore = Gtk.Template.Child("specialPriceStore_presentation")
+    store_specialPriceSuggestions_lookup: Gtk.ListStore = Gtk.Template.Child("specialPriceStore_lookup")
 
     img_project: Gtk.Image = Gtk.Template.Child("img_project")
 
     # Ref to the currently selected project
     current_project: Project = None
 
-    @Gtk.Template.Callback("on_specialprice_name_changed")
+    @Gtk.Template.Callback("on_specialprice_presentation_name_changed")
     def on_specialprice_name_changed(self, elm: Gtk.Entry):
-        self.current_project.special_price_name = elm.get_text()
+        self.current_project.special_price_name[0] = elm.get_text()
+
+    @Gtk.Template.Callback("on_specialprice_lookup_name_changed")
+    def on_specialprice_name_changed(self, elm: Gtk.Entry):
+        self.current_project.special_price_name[1] = elm.get_text()
 
     @Gtk.Template.Callback("on_price_changed")
     def on_price_changed(self, elm: Gtk.ComboBox):
@@ -71,8 +77,16 @@ class ProjectView(Gtk.Stack):
 
         # Attaches all name suggestions
         with open(CachedRessource.SPECIAL_PRICE_NAME_SUGGESTIONS) as f:
+            # Reads all suggestions in line by line
             for line in f:
-                self.store_specialPriceSuggestions.append(["@" + line.strip()])
+                # Ensures that that line contains data
+                if len(line.strip()) <= 0:
+                    continue
+
+                # Splits them into presentation and real
+                suggest_pres, suggest_lookup = line.split(";")
+                self.store_specialPriceSuggestions_presentation.append([suggest_pres.strip()])
+                self.store_specialPriceSuggestions_lookup.append([suggest_lookup.strip()])
 
         # Registers the project-selectors
         EventDispatcher.start_lurking(Signals.SIGNAL_UI_PROJECT_SELECT, self.set_project)
@@ -119,7 +133,8 @@ class ProjectView(Gtk.Stack):
         self.fld_price.set_active(PRICES.index(proj.price))
 
         # Setups the special price field
-        self.fld_special_price.set_text(proj.special_price_name)
+        self.fld_special_price_lookup.set_text(proj.special_price_name[1])
+        self.fld_special_price_presentation.set_text(proj.special_price_name[0])
 
         # Updates the project-image
         if UserRessources.project_images is not None and proj.get_raw_stand_number() in UserRessources.project_images:

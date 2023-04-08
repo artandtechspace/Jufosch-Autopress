@@ -2,20 +2,38 @@
 <!-- Generated with glade 3.38.2 -->
 <interface>
   <requires lib="gtk+" version="3.24"/>
+  <object class="GtkEntryCompletion" id="autocomp_lookup">
+    <property name="model">specialPriceStore_lookup</property>
+    <property name="text-column">0</property>
+    <property name="inline-completion">True</property>
+    <property name="inline-selection">True</property>
+    <child>
+      <object class="GtkCellRendererText"/>
+      <attributes>
+        <attribute name="text">0</attribute>
+      </attributes>
+    </child>
+  </object>
   <object class="GtkListStore" id="priceStore">
     <columns>
       <!-- column-name Name -->
       <column type="gchararray"/>
     </columns>
   </object>
-  <object class="GtkListStore" id="specialPriceStore">
+  <object class="GtkListStore" id="specialPriceStore_lookup">
     <columns>
       <!-- column-name Name -->
       <column type="gchararray"/>
     </columns>
   </object>
-  <object class="GtkEntryCompletion" id="entrycompletion1">
-    <property name="model">specialPriceStore</property>
+  <object class="GtkListStore" id="specialPriceStore_presentation">
+    <columns>
+      <!-- column-name Name -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkEntryCompletion" id="autocomp_presentation">
+    <property name="model">specialPriceStore_presentation</property>
     <property name="text-column">0</property>
     <property name="inline-completion">True</property>
     <property name="inline-selection">True</property>
@@ -371,6 +389,7 @@
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="halign">start</property>
+                <property name="margin-bottom">2</property>
                 <property name="label" translatable="yes">Select Price</property>
                 <attributes>
                   <attribute name="weight" value="bold"/>
@@ -410,15 +429,43 @@
                 <property name="margin-start">25</property>
                 <property name="margin-top">15</property>
                 <property name="orientation">vertical</property>
+                <property name="spacing">15</property>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkBox">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="halign">start</property>
-                    <property name="label" translatable="yes">Specialprice Name</property>
-                    <attributes>
-                      <attribute name="weight" value="bold"/>
-                    </attributes>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="halign">start</property>
+                        <property name="margin-bottom">2</property>
+                        <property name="label" translatable="yes">Specialprice Name (Presentation)</property>
+                        <attributes>
+                          <attribute name="weight" value="bold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="fld_specialPrice_presentation">
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="completion">autocomp_presentation</property>
+                        <property name="input-purpose">name</property>
+                        <signal name="changed" handler="on_specialprice_presentation_name_changed" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -427,12 +474,41 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry" id="fld_specialPrice">
+                  <object class="GtkBox">
                     <property name="visible">True</property>
-                    <property name="can-focus">True</property>
-                    <property name="completion">entrycompletion1</property>
-                    <property name="input-purpose">name</property>
-                    <signal name="changed" handler="on_specialprice_name_changed" swapped="no"/>
+                    <property name="can-focus">False</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="halign">start</property>
+                        <property name="margin-bottom">2</property>
+                        <property name="label" translatable="yes">Specialprice Name (Lookup)</property>
+                        <attributes>
+                          <attribute name="weight" value="bold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="fld_specialPrice_lookup">
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="completion">autocomp_lookup</property>
+                        <property name="input-purpose">name</property>
+                        <signal name="changed" handler="on_specialprice_lookup_name_changed" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>

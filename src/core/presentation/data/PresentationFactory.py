@@ -102,7 +102,7 @@ class PresentationFactory:
                 txt_field = plc_f_text if project.price.normal_price is None else plc_s_text
 
                 factory.add_image(img_field, self.special_price_image)
-                factory.populate(txt_field, project.special_price_name)
+                factory.populate(txt_field, project.special_price_name[0])
 
     # Takes in a project and build the lookup-slide for that project
     # If with_prices is enabled the prices for that project will also be added
@@ -139,7 +139,7 @@ class PresentationFactory:
         # Checks if prices should be loaded
         if with_prices and project.price is not DEFAULT_PRICE:
             # Adds the nodes
-            factory.populate(PLC.NOTES, project.price.get_name("\n+\n") + "\n" + project.special_price_name)
+            factory.populate(PLC.NOTES, project.price.get_name("\n+\n") + "\n" + project.special_price_name[1])
 
             # Adds the normal price (If one exists)
             if project.price.normal_price is not None:
