@@ -47,11 +47,15 @@ class ProjectView(Gtk.Stack):
     current_project: Project = None
 
     @Gtk.Template.Callback("on_specialprice_presentation_name_changed")
-    def on_specialprice_name_changed(self, elm: Gtk.Entry):
+    def on_specialprice_pres_name_changed(self, elm: Gtk.Entry):
+        if self.current_project is None:
+            return
         self.current_project.special_price_name[0] = elm.get_text()
 
     @Gtk.Template.Callback("on_specialprice_lookup_name_changed")
-    def on_specialprice_name_changed(self, elm: Gtk.Entry):
+    def on_specialprice_lookup_name_changed(self, elm: Gtk.Entry):
+        if self.current_project is None:
+            return
         self.current_project.special_price_name[1] = elm.get_text()
 
     @Gtk.Template.Callback("on_price_changed")
