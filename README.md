@@ -44,7 +44,7 @@ Its also recommended that [Auto-Py-To-Exe](https://pypi.org/project/auto-py-to-e
 |Additional-files|The `src/` folder must be specified as `src/` here|
 |Advanced >> `--path`|Specify the parent foler of `src`, so `src/../` here|
 |Script location|`src/main.py`|
-
+|Advanced >> `--name`|`Jufusch-Autopress`|
 
 # I18n
 
