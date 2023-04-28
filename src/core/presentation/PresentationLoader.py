@@ -56,8 +56,11 @@ def __get_placeholders(layout: pptx.slide.SlideLayout, placeholder_group: [str])
     # Iterates over every required placeholder and then searches it
     for plc_text, plc_types in placeholder_group:
         for plc in layout.placeholders:
+            # Gets the placeholder text
+            txt: str = plc.text.strip().lower()
+
             # Ensures the texts match up
-            if plc.text == plc_text:
+            if txt == plc_text.lower():
 
                 # Ensures that the placeholder is of a valid type
                 if plc.placeholder_format.type.real not in plc_types:
