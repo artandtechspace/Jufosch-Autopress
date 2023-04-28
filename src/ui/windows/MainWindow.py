@@ -12,6 +12,7 @@ from src.ui.components.UiProjectList import ProjectList
 from src.ui.components.UiProjectView import ProjectView
 from src.ui.components.UiStatistics import Statistics
 from src.utils import EventDispatcher
+from sys import platform
 
 window: Gtk.Window
 project_list: ProjectList
@@ -54,6 +55,20 @@ def __create_statistics_view(builder: Gtk.Builder):
 
     # Runs the initialisation update
     __on_conditions_update(None)
+
+# Ensures a language warning is displayed if the operating system is windows
+# as it doesn't support get-text fully yet
+def __create_language_warning(builder: Gtk.Builder):
+    # Ensures that the os is windows
+    is_shown = platform == "win32"
+
+    # Gets the icon and its parent
+    warn_icon: Gtk.Image = builder.get_object("img_warning_language")
+    parent : Gtk.HeaderBar = warn_icon.get_parent()
+
+    # Removes the icon if it shouldn't be displayed
+    if not is_shown:
+        parent.remove(warn_icon)
 
 # Create the project-preview
 def __create_project_preview(builder: Gtk.Builder):
@@ -147,7 +162,6 @@ def __on_projects_change(projects: None | list[Project]):
         project_list.load_projects(projects)
     pass
 
-
 # Opens the main window
 def open():
     global window, project_list, project_view
@@ -160,6 +174,9 @@ def open():
     # Connect the handlers
     # builder.connect_signals({
     # })
+
+    # Creates the language warning on windows
+    __create_language_warning(builder)
 
     # Creates the project-view and project-list
     project_view = __create_project_preview(builder)
