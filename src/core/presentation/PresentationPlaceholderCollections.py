@@ -13,25 +13,27 @@ All below placeholders have firstly their identify text as
 the first object and secondly an array of placeholder-types that the placeholder must be an instance of
 '''
 
-MEMBER_1 = ("Schüler 1", __COMMON_TEXT)
-MEMBER_2 = ("Schüler 2", __COMMON_TEXT)
-MEMBER_3 = ("Schüler 3", __COMMON_TEXT)
-SCHOOL = ("Schulname", __COMMON_TEXT)
+MEMBER_1 = ("M1", __COMMON_TEXT)
+MEMBER_2 = ("M2", __COMMON_TEXT)
+MEMBER_3 = ("M3", __COMMON_TEXT)
+SCHOOL = ("Location", __COMMON_TEXT)
 
-PROJECT_IMAGE = ("Projektbild", __COMMON_IMAGE)
+PROJECT_IMAGE = ("PJI", __COMMON_IMAGE)
 
-PROJECT_TITLE = ("Überschrift", __COMMON_TEXT)
+PROJECT_TITLE = ("Title", __COMMON_TEXT)
 
-NOTES = ("Notizen", __COMMON_TEXT)
+NOTES = ("Notes", __COMMON_TEXT)
 
-LOOKUP_PRICE_1 = ("Preis 1", __COMMON_IMAGE)
-LOOKUP_PRICE_2 = ("Preis 2", __COMMON_IMAGE)
+LOOKUP_PRICE_1 = ("P1", __COMMON_IMAGE)
+LOOKUP_PRICE_2 = ("P2", __COMMON_IMAGE)
 
-PROJECT_PRICES_1_FLYIN_TEXT = ("Preis 1 text einfiegend", __COMMON_TEXT)
-PROJECT_PRICES_1_FLYIN_IMAGE = ("Preis 1 bild einfliegend", __COMMON_IMAGE)
-PROJECT_PRICES_2_FLYIN_TEXT = ("Preis 2 text einfiegend", __COMMON_TEXT)
-PROJECT_PRICES_2_FLYIN_IMAGE = ("Preis 2 bild einfliegend", __COMMON_IMAGE)
-PROJECT_PRICES_1_ROTATING_TEXT = ("Preis 1 text rotierend", __COMMON_TEXT)
-PROJECT_PRICES_1_ROTATING_IMAGE = ("Preis 1 bild rotierend", __COMMON_IMAGE)
-PROJECT_PRICES_2_ROTATING_TEXT = ("Preis 2 text rotierend", __COMMON_TEXT)
-PROJECT_PRICES_2_ROTATING_IMAGE = ("Preis 2 bild rotierend", __COMMON_IMAGE)
+# P1IR - Price 1 Image Rotating
+# P2TE - Price 2 Text Flyin
+PROJECT_PRICES_1_FLYIN_TEXT = ("P1TF", __COMMON_TEXT)
+PROJECT_PRICES_1_FLYIN_IMAGE = ("P1IF", __COMMON_IMAGE)
+PROJECT_PRICES_2_FLYIN_TEXT = ("P2TF", __COMMON_TEXT)
+PROJECT_PRICES_2_FLYIN_IMAGE = ("P2IF", __COMMON_IMAGE)
+PROJECT_PRICES_1_ROTATING_TEXT = ("P1TR", __COMMON_TEXT)
+PROJECT_PRICES_1_ROTATING_IMAGE = ("P1IR", __COMMON_IMAGE)
+PROJECT_PRICES_2_ROTATING_TEXT = ("P2TR", __COMMON_TEXT)
+PROJECT_PRICES_2_ROTATING_IMAGE = ("P2IR", __COMMON_IMAGE)
