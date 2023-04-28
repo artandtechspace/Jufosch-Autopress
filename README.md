@@ -1,19 +1,42 @@
+# What is this Project?
 
-This is a simple reference file, no full README
+This is a small internal program to fill a power-point-presentation (PPP) with jufo-data (Mainly members and project) and also to directly assign prices to them.
+
+It's based on the [PyGObject](https://www.gtk.org/docs/language-bindings/python/) (Gtk + Python) and uses [python-pptx](https://python-pptx.readthedocs.io/en/latest/index.html) to read/write presentations.
+
 
 # How to run
-## Locally
+
+**Check the windows-section below as it's a bit trick to run there**
+
+Firstly you need to have installed the required librarys
+
+|Software|Info|
+|-|-|
+|[PyGObject](https://www.gtk.org/docs/language-bindings/python/)||
+|[python-pptx](https://python-pptx.readthedocs.io/en/latest/index.html)||
+|[gettext](https://www.gnu.org/software/gettext/) (Often already preinstalled)|Linux only, the windows version currently doesn't support multiple languages|
+
+## For windows
+All of the instructions below wont work out of the box, you need to install [MinWG](https://sourceforge.net/projects/mingw/).
+Then install all required python-librarys through their CLI (MSys2). For that you need to use pacman.
+
+To install a specific python package, go to
+[packages.msys2.org/package/mingw-w64-x86_64-python-{PACKAGE}](
+packages.msys2.org/package/mingw-w64-x86_64-python-{PACKAGE}) where you replace `{PACKAGE}` with for example `pillow` or `lxml`.
+
+## Running locally
 
 Use
 ```bash
 python -m src.main
 ```
-directly inside the parent folder to the src-folder to run the program locally.
+directly inside the parent folder to the `src`-folder to run the program locally.
 
 ## Install
 We use [PyInstaller](https://pyinstaller.org/en/stable/) to create an executable file.
 Following are the settings.
-Its also recommended that [Auto-Py-To-Exe](https://pypi.org/project/auto-py-to-exe/) is used as it's a gui for PyInstaller
+Its also recommended that [Auto-Py-To-Exe](https://pypi.org/project/auto-py-to-exe/) is used as it's a gui for PyInstaller **(Work on linux as well as on windows)**
 
 |Name|Value|
 |-|-|
@@ -23,14 +46,9 @@ Its also recommended that [Auto-Py-To-Exe](https://pypi.org/project/auto-py-to-e
 |Script location|`src/main.py`|
 
 
-### Windows
-MineGw (MSys2) installieren und darüber dann python, pip und über pacman dann die speziellen Python-packete
-
-packages.msys2.org/package/mingw-w64-x86_64-python-[PACKAGE] zb. pillow oder lxml
-
 # I18n
 
-Most of the below bases on [this](https://simpleit.rocks/python/how-to-translate-a-python-project-with-gettext-the-easy-way/)
+Most of the instructions below are based on [this](https://simpleit.rocks/python/how-to-translate-a-python-project-with-gettext-the-easy-way/).
 
 ## Getting all messages
 To extract all getText-Messages, run
@@ -40,7 +58,7 @@ find src/ -name "*.py" -o -name "*.glade" | xargs xgettext -d jufusch-presentati
 
 ## Creating a new language
 
-inside the parent folder of src/
+inside the parent folder of `src/`
 
 Using
 ```bash
@@ -77,4 +95,4 @@ msgfmt -o locale/de/LC_MESSAGES/jufusch-presentation-tool.mo locale/de/LC_MESSAG
 
 *Using german language as an example here*
 
-you generate the binary language file that will be used by the program
+you generate the binary language file that will be used by the program.
